@@ -99,3 +99,7 @@
    height: 50px;
    line-height: 25px;
  }
+
+ .button-div{
+   display: inline-block;
+ }

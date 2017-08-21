@@ -1,6 +1,5 @@
 import React from 'react';
-import LoginContainer from '../session_form/login_container';
-import SignupContainer from '../session_form/signup_container';
+import SessionModal from '../modals/session_modal';
 
 class Home extends React.Component {
     constructor(props){
@@ -10,15 +9,18 @@ class Home extends React.Component {
   render(){
     return(
       <div className="app">
+
         <div id="top-section">
           <div id="top-section-buttons">
-            <button className="button" id="sign-in" type="button" name="Sign In" onClick= '<LoginContainer />'>Sign in</button>
-            <button className="button" id="create-account" type="button" name="Create Account" onClick= '<SignupContainer />'>Create account</button>
+          &nbsp;
+          <SessionModal type="Sign In"/>
+          &nbsp;
+          <SessionModal type="Sign Up"/>
           </div>
           <div className="top-section-center">
-            <h2 id="top-section-center-title">Connect on SoundCloud</h2>
+            <h2 id="top-section-center-title">Connect on SoundTom</h2>
             <p id="top-section-center-text">Discover, stream, and share a constantly expanding mix of music from emerging and major artists around the world.</p>
-            <button className="button" id="sign-up" type="button" name="Sign Up" onClick= '<SignupContainer />'>Sign up for free</button>
+            <SessionModal type="Sign up for free" />
           </div>
         </div>
       </div>
