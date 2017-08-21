@@ -1,9 +1,9 @@
-import { RECEIVE_ERRORS, RECEIVE_CURRENT_USER} from '../actons/session_actions';
+import { RECEIVE_ERRORS, RECEIVE_CURRENT_USER} from '../actions/session_actions';
 
 const defaulState = {currentUser: null, errors: []};
 
 const sessionReducer = (state = defaulState, action) => {
-  Object.frezze();
+  Object.freeze();
   let newState;
   switch(action.type){
     case RECEIVE_ERRORS:
