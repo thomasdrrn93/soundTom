@@ -13,3 +13,89 @@
  *= require_tree .
  *= require_self
  */
+ body {
+   margin: 0px;
+   background-color: #f2f2f2;
+   font-family: "Interstate","Lucida Grande","Lucida Sans Unicode","Lucida Sans",Garuda,Verdana,Tahoma,sans-serif;
+   font-weight: 100;
+ }
+
+ #top-section {
+   height: 450px;
+   background-color: grey;
+   width: 1240px;
+   border-top: solid #f50 4px;
+   margin: 0px,10px,0px,10px;
+   margin: auto;
+   background: url(https://a-v2.sndcdn.com/assets/images/home/hp_image-6155d6b.jpg);
+   color: #fff;
+   -webkit-font-smoothing: antialiased;
+   font-weight: 100;
+ }
+
+ #top-section-buttons{
+   position: absolute;
+   top: 22px;
+   right: 58px;
+ }
+
+ .button {
+   display: inline-block;
+   position: relative;
+   margin-right: 0;
+   border-radius: 3px;
+   padding: 2px 11px 2px 10px;
+   color: white;
+   border: 1px solid #e5e5e5;
+   cursor: pointer;
+   line-height: 20px;
+ }
+
+ #sign-in {
+   background: 0 0;
+   border-color: #ccc;
+   height: 30px;
+   padding-left: 15px;
+   padding-right: 15px;
+   margin-right: 6px;
+ }
+
+ #create-account {
+   background-color: #f50;
+   border-color: #f50;
+   height: 30px;
+   padding: 0 16px;
+ }
+
+ #sign-up {
+   background-color: #f50;
+   border-color: #f50;
+   color: white;
+   font-size: 18px;
+   min-width: 210px;
+   height: 46px;
+   margin-top: 10px
+ }
+
+ .top-section-center {
+   display: flex;
+   margin-top: 140px;
+   flex-direction: column;
+   align-items: center;
+ }
+
+ #top-section-center-title {
+   font-size: 36px;
+   font-weight: 100;
+   margin-top: 0;
+   margin-bottom: 6px;
+ }
+
+ #top-section-center-text {
+   font-size: 18px;
+   max-width: 530px;
+   text-align: center;
+   margin: 0 0 10px;
+   height: 50px;
+   line-height: 25px;
+ }

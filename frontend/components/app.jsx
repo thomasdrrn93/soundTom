@@ -1,8 +1,9 @@
 import React from 'react';
+import HomeContainer from './home/home_container';
 
 const App = () => (
   <div>
-    <h1>SoundTom</h1>
+    <HomeContainer />
   </div>
 );
 
