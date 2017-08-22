@@ -21,7 +21,6 @@ title          | string    | not null
 uploader_id    | integer   | not null, foreign key
 track_url      | string    | not null
 image_url      | string    |
-description    | string    |
 genre          | string    |
 created_at     | datetime  | not null
 updated_at     | datetime  | not null
