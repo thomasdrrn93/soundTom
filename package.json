@@ -13,6 +13,11 @@
     "postinstall": "webpack"
   },
 
+  "engines": {
+    "node": "6.10.1",
+    "npm": "3.10.10"
+  },
+
   "author": "",
   "license": "ISC",
   "dependencies": {
