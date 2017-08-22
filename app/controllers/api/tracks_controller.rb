@@ -5,6 +5,7 @@ class Api::TracksController < ApplicationController
   end
 
   def create
+    debugger;
     @track = Track.new(track_params)
     if @track.save
       render 'api/tracks/show'
@@ -29,6 +30,6 @@ class Api::TracksController < ApplicationController
   private
 
     def track_params
-      params.require(:track).permit(:name, :genre, :uploader_id)
+      params.require(:track).permit(:name, :genre, :uploader_id, :image, :uploader_id)
     end
 end
