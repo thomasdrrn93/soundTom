@@ -1,1 +1,5 @@
-json.array! @tracks, :name, :genre, :uploader_id
+@tracks.each do |track|
+  json.set! track.id do
+    json.partial! 'track', track: track
+  end
+end

@@ -1,12 +1,11 @@
 class Api::TracksController < ApplicationController
   def index
-    @tracks = Track.where(uploader_id: params[:user_id])
+    @tracks = Track.all
     render 'api/tracks/index'
   end
 
   def create
     @track = Track.new(track_params)
-    @track.uploader_id = params[:user_id]
     if @track.save
       render 'api/tracks/show'
     else
@@ -25,10 +24,6 @@ class Api::TracksController < ApplicationController
     else
       render json: @track.errors.full_messages, status: 422
     end
-  end
-
-  def update
-
   end
 
   private
