@@ -6,10 +6,13 @@
   "directories": {
     "test": "test"
   },
+
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "webpack": "webpack --watch"
+    "webpack": "webpack --watch",
+    "postinstall": "webpack"
   },
+
   "author": "",
   "license": "ISC",
   "dependencies": {
