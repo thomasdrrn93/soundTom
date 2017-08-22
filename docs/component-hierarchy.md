@@ -40,4 +40,5 @@ path              | component
 '/'               | HomeContainer   
 '/stream'         | StreamContainer    
 '/users/:userid'  | UserPageContainer    
-'/tracks/:trackid'| TrackPageContainer    
+'/tracks/:trackid'| TrackPageContainer
+'/upload'         | UploadContainer    
