@@ -12,7 +12,8 @@ const customStyles = {
     bottom                : 'auto',
     marginRight           : '-50%',
     transform             : 'translate(-50%, -50%)',
-    height                : '200px'
+    height                : '300px',
+    display               : 'inlind-block'
   }
 };
 

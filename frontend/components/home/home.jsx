@@ -4,6 +4,13 @@ import SessionModal from '../modals/session_modal';
 class Home extends React.Component {
     constructor(props){
       super(props);
+      this.guestLogin = this.guestLogin.bind(this);
+    }
+
+    guestLogin(e){
+      e.preventDefault();
+      const user= {username: 'guest', password: 'password'};
+      this.props.login({user});
     }
 
   render(){
@@ -12,10 +19,11 @@ class Home extends React.Component {
 
         <div id="top-section">
           <div id="top-section-buttons">
-          &nbsp;
-          <SessionModal type="Sign In"/>
-          &nbsp;
-          <SessionModal type="Sign Up"/>
+            <button className='button' id='guest' onClick={this.guestLogin}>Guest Demo</button>
+            &nbsp;
+            <SessionModal type="Sign In"/>
+            &nbsp;
+            <SessionModal type="Sign Up"/>
           </div>
           <div className="top-section-center">
             <h2 id="top-section-center-title">Connect on SoundTom</h2>
