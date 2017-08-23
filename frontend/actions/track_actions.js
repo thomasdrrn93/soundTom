@@ -32,7 +32,7 @@ export const fetchOneTrack = (track) => (dispatch) =>{
     .then(track => dispatch(receiveSingleTrack(track)));
 };
 
-export const fetchAllTrack = () => (dispatch) =>{
+export const fetchAllTracks = () => (dispatch) =>{
   return APIUtil.fetchAllTracks()
     .then(tracks => dispatch(receiveAllTracks(tracks)));
 };

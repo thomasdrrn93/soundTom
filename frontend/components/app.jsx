@@ -1,6 +1,6 @@
 import React from 'react';
 import HomeContainer from './home/home_container';
-import  StreamContainer from './stream/stream';
+import  StreamContainer from './stream/stream_container';
 import { Route } from 'react-router-dom';
 import { AuthRoute, ProtectedRoute } from '../util/route_util.jsx';
 import UploadContainer from './upload/upload_container';
