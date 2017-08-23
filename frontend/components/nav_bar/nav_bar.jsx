@@ -21,6 +21,9 @@ class NavBar extends React.Component{
           </a>
         </div>
         <div id='right-nav'>
+          <a href ="/#/upload" className='nav-links'>
+            <div>Upload</div>
+          </a>
           <a href="/#/stream" className='nav-links'>
             <div>{this.props.currentUser.username}</div>
           </a>
