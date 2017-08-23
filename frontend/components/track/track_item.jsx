@@ -7,7 +7,12 @@ class TrackItem extends React.Component{
 
   render(){
     return(
-      <h1>Hello</h1>
+      <li>
+        <div>
+          <img className='track-item-album' src={this.props.track.image_url}/>
+          <div></div>
+        </div>
+      </li>
     );
   }
 }

@@ -24,8 +24,8 @@ class Stream extends React.Component{
           <NavBarContainer />
         </header>
         <div>
-          <ul>
-            {tracks.map(track => <TrackItem key={track.id} pokemon={track} />)}
+          <ul id= 'stream-track-list'>
+            {tracks.map(track => <TrackItem key={track.id} track={track} />)}
           </ul>
         </div>
       </div>

@@ -18,7 +18,8 @@ class Upload extends React.Component{
   }
 
   handleSubmit(e){
-    e.preventDefault;
+    debugger;
+    e.preventDefault();
     const formData = new FormData();
     formData.append("track[name]", this.state.name);
     formData.append("track[audio]", this.state.audio);
