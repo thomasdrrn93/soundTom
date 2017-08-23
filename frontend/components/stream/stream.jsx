@@ -1,5 +1,5 @@
 import React from 'react';
-import TrackItem from '../track/';
+import TrackItem from '../track/track_item';
 import NavBarContainer from '../nav_bar/nav_bar_container';
 
 class Stream extends React.Component{
@@ -7,7 +7,8 @@ class Stream extends React.Component{
     super(props);
   }
    componentWillMount(){
-     this.props.fetchAllTracks;
+     debugger;
+     this.props.fetchAllTracks();
    }
   render(){
     const tracks = this.props.tracks;

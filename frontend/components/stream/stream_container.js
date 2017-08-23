@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import Stream from './stream';
 import { fetchAllTracks } from '../../actions/track_actions';
-import { tracksArray } from '../../redcuers/selectors';
+import { tracksArray } from '../../reducers/selectors';
 
 const mapStateToProps = (state) => {
   const tracks = tracksArray(state);
