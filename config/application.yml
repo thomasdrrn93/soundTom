@@ -1,0 +1,9 @@
+development:
+  s3_bucket: "soundtom-dev"
+
+production:
+  s3_bucket: "soundtom-pro"
+
+s3_region:  "us-east-1"
+s3_access_key_id: "AKIAIU3PWAY5X6LNSEGA"
+s3_secret_access_key: "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"
