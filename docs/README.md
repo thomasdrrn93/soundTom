@@ -1,6 +1,10 @@
 # SoundTom
+[Heroku link][Heroku]
+[Trello link][Trello]
+[Heroku]: https://soundtom.herokuapp.com/#/stream
 
 
+[Trello]: https://trello.com/b/cISPPxZN/soundtom
 
 ## Minimum Viable Product
 SoundTom is web application inspired by SoundCloud built using Ruby on Rails and React/Redux. By the completion of this project SoundTom will include the following features with with smooth, bug-free navigation, seed data, and satisfactory CSS styling:
