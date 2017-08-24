@@ -56,11 +56,18 @@ class Upload extends React.Component{
         <div className='after-header'>
           <div className= 'upload-div'>
             <form onSubmit={this.handleSubmit} className='upload-form'>
-              <FileInput placeholder= 'Upload Image' className='file-input' onChange={this.updateImage} />
-              <FileInput placeholder= 'Upload Text' className='file-input' onChange={this.updateAudio} />
-                <input className= 'upload-input' type='text' onChange={this.updateText('name')} placeholder='Track name' value={this.state.name}/>
-                <input className= 'upload-input' type='text' onChange={this.updateText('genre')} placeholder= 'Genre name' value={this.state.genre}/>
-              <button>Upload your track</button>
+              <div className='upload-title'>Add a Track</div>
+              <label for='upload-image' className='file-label'>
+                <div className='file-div'>Upload Image</div>
+                <input className='file-input' type="file" id="upload-image" onChange={this.updateImage} />
+              </label>
+              <label for='upload-audio' className='file-label'>
+                <div className='file-div'>Upload Audio</div>
+                  <input className='file-input' type="file" id="upload-audio" onChange={this.updateAudio} />
+              </label>
+              <input className= 'upload-input' type='text' onChange={this.updateText('name')} placeholder='Track name' value={this.state.name}/>
+              <input className= 'upload-input' type='text' onChange={this.updateText('genre')} placeholder= 'Genre name' value={this.state.genre}/>
+              <button className= 'upload-button'>Upload your track</button>
             </form>
           </div>
         </div>

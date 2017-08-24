@@ -4,6 +4,7 @@ import { fetchOneTrack } from '../../actions/track_actions';
 import { withRouter} from 'react-router-dom';
 
 const mapStateToProps = (state, ownProps) => {
+  debugger;
   const track = state.entities.tracks[ownProps.match.params.id];
   return {
     track
