@@ -61,5 +61,6 @@ class LoginForm extends React.Component{
     );
   }
 }
+// {this.renderErrors()}
 
 export default LoginForm;

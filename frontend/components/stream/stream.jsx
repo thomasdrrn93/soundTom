@@ -7,7 +7,6 @@ class Stream extends React.Component{
     super(props);
   }
    componentWillMount(){
-     debugger;
      this.props.fetchAllTracks();
    }
   render(){
@@ -23,9 +22,13 @@ class Stream extends React.Component{
         <header>
           <NavBarContainer />
         </header>
-        <div>
-          <ul>
-            {tracks.map(track => <TrackItem key={track.id} pokemon={track} />)}
+        <div className='after-header'>
+          <div className='title'>
+            <div className='title-text'>Stream</div>
+          </div>
+          <ul id='stream-track-list' className='stream'>
+            {tracks.map(track => <TrackItem key={track.id} track={track} />)}
+
           </ul>
         </div>
       </div>

@@ -13,7 +13,7 @@ const customStyles = {
     marginRight           : '-50%',
     transform             : 'translate(-50%, -50%)',
     height                : '300px',
-    display               : 'inlind-block'
+    display               : 'inline-block'
   }
 };
 
@@ -28,6 +28,7 @@ class SessionModal extends React.Component {
       this.closeModal = this.closeModal.bind(this);
     }
   openModal() {
+    debugger;
     this.setState({modalIsOpen: true});
   }
   closeModal() {
@@ -35,6 +36,7 @@ class SessionModal extends React.Component {
   }
 
   render(){
+    debugger;
     let button;
     if (this.props.type === 'Sign In') {
       button = (<button className="button" id="sign-in" type="button"

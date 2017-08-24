@@ -1,5 +1,6 @@
 import React from 'react';
 
+
 class NavBar extends React.Component{
   constructor(props){
     super(props);
@@ -22,7 +23,7 @@ class NavBar extends React.Component{
         </div>
         <div id='right-nav'>
           <a href ="/#/upload" className='nav-links'>
-            <div>Upload</div>
+            <div id='nav-upload'>Upload</div>
           </a>
           <a href="/#/stream" className='nav-links'>
             <div>{this.props.currentUser.username}</div>
