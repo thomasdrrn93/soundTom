@@ -1,4 +1,5 @@
-import { RECEIVE_SINGLE_TRACK, RECEIVE_ALL_TRACKS } from '../actions/track_actions';
+import { RECEIVE_SINGLE_TRACK, RECEIVE_ALL_TRACKS, RECEIVE_ERRORS } from '../actions/track_actions';
+
 
 const tracksReducer = (state = {}, action) =>{
   Object.freeze(state);

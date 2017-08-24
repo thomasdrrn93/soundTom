@@ -2,11 +2,19 @@ import * as APIUtil from '../util/tracks_util';
 
 export const RECEIVE_SINGLE_TRACK = 'RECEIVE_SINGLE_TRACK';
 export const RECEIVE_ALL_TRACKS = 'RECEIVE_ALL_TRACKS';
+export const RECEIVE_TRACK_ERRORS = 'RECEIVE_TRACK_ERRORS';
 
 export const receiveSingleTrack = (track) => {
   return{
     type: RECEIVE_SINGLE_TRACK,
     track
+  };
+};
+
+export const receiveErrors = (errors) => {
+  return{
+    type: RECEIVE_TRACK_ERRORS,
+    errors
   };
 };
 
@@ -19,7 +27,8 @@ export const receiveAllTracks = (tracks) => {
 
 export const createNewTrack = (track) => (dispatch) =>{
   return APIUtil.createTrack(track)
-    .then(track => dispatch(receiveSingleTrack(track)));
+    .then(track => dispatch(receiveSingleTrack(track)),
+  err => (dispatch(receiveErrors(err.responseJSON))));
 };
 
 export const updateTrack = (track) => (dispatch) =>{
