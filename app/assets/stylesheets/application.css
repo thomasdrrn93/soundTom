@@ -50,6 +50,7 @@
    border: 1px solid #e5e5e5;
    cursor: pointer;
    line-height: 20px;
+   font-size: 14px;
  }
 
  #guest {
