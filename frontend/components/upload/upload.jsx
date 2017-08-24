@@ -1,4 +1,6 @@
 import React from 'react';
+import NavBarContainer from '../nav_bar/nav_bar_container';
+import FileInput from 'react-file-input';
 
 class Upload extends React.Component{
   constructor(props){
@@ -18,7 +20,6 @@ class Upload extends React.Component{
   }
 
   handleSubmit(e){
-    debugger;
     e.preventDefault();
     const formData = new FormData();
     formData.append("track[name]", this.state.name);
@@ -49,12 +50,20 @@ class Upload extends React.Component{
   render(){
     return (
       <div>
-        <form onSubmit={this.handleSubmit}>
-          <input type='text' onChange={this.updateText('name')} value={this.state.name}/>
-          <input type='file' onChange={this.updateImage} />
-          <input type='file' onChange={this.updateAudio} />
-          <button>Upload your track</button>
-        </form>
+        <header>
+          <NavBarContainer />
+        </header>
+        <div className='after-header'>
+          <div className= 'upload-div'>
+            <form onSubmit={this.handleSubmit} className='upload-form'>
+              <FileInput placeholder= 'Upload Image' className='file-input' onChange={this.updateImage} />
+              <FileInput placeholder= 'Upload Text' className='file-input' onChange={this.updateAudio} />
+                <input className= 'upload-input' type='text' onChange={this.updateText('name')} placeholder='Track name' value={this.state.name}/>
+                <input className= 'upload-input' type='text' onChange={this.updateText('genre')} placeholder= 'Genre name' value={this.state.genre}/>
+              <button>Upload your track</button>
+            </form>
+          </div>
+        </div>
       </div>
     );
   }

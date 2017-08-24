@@ -10,7 +10,6 @@ class Stream extends React.Component{
      this.props.fetchAllTracks();
    }
   render(){
-    debugger;
     const tracks = this.props.tracks;
     return (
       (typeof tracks === 'undefined') ?
@@ -24,8 +23,12 @@ class Stream extends React.Component{
           <NavBarContainer />
         </header>
         <div className='after-header'>
-          <ul id='stream-track-list'>
+          <div className='title'>
+            <div className='title-text'>Stream</div>
+          </div>
+          <ul id='stream-track-list' className='stream'>
             {tracks.map(track => <TrackItem key={track.id} track={track} />)}
+
           </ul>
         </div>
       </div>
