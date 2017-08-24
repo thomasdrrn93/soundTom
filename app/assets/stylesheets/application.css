@@ -302,7 +302,7 @@
   height: 380px;
   background: #887e7e;
   display: flex;
-  flex direction: row;
+  flex-direction: row;
   position: relative;
 }
 .track-left-profile{
