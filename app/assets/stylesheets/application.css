@@ -13,8 +13,8 @@
  *= require_tree .
  *= require_self
  */
-
- 
+ @import './reset.css';
+ @import url('https://fonts.googleapis.com/css?family=Overpass:400,700');
 
  html{
    height: 100%;
