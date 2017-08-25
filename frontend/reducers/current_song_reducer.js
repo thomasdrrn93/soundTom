@@ -1,6 +1,6 @@
 import { RECEIVE_CURRENT_TRACK } from '../actions/play_bar_actions';
 
-const currentSongReducer = (state = {}, action) => {
+const currentSongReducer = (state = null, action) => {
   Object.freeze();
   switch(action.type){
     case RECEIVE_CURRENT_TRACK:
