@@ -4,13 +4,14 @@ import { receiveCurrrentTrack } from '../../actions/play_bar_actions';
 
 const mapStateToProps = (state) => {
   return{
-    currentSong: state.currentSong
+    currentSong: state.playing.currentSong,
+    status: state.playing.status
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    receiveCurrrentTrack: (track) => dispatch(receiveCurrrentTrack(track))
+    receiveCurrrentTrack: (track, status) => dispatch(receiveCurrrentTrack(track, status))
   };
 };
 

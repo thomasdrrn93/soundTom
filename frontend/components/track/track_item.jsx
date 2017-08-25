@@ -4,22 +4,26 @@ import { Link } from 'react-router-dom';
 class TrackItem extends React.Component{
   constructor(props){
     super(props);
-    
-    this.playAudio = this.playAudio.bind(this);
+
+    this.handleAudio = this.handleAudio.bind(this);
   }
 
-  playAudio(){
-    this.audioTag.play();
+  handleAudio(){
+    if (this.props.currentSong === this.props.track){
+      if (this.props.status === 'pause'){
+        this.props.receiveCurrrentTrack(this.props.track, 'play');
+      } else {
+        this.props.receiveCurrrentTrack(this.props.track, 'pause');
+      }
+    } else {
+      this.props.receiveCurrrentTrack(this.props.track, 'play');
+    }
   }
-
-
 
   render(){
-    const audio = this.props.track.audio;
     return(
       <li key={this.props.track.id} className='single-track'>
-          <img onClick= {this.playAudio} className='track-item-pic' src={this.props.track.image_url}/>
-          <audio src={audio} ref={(elm) =>{this.audioTag = elm}}></audio>
+          <img onClick= {this.handleAudio} className='track-item-pic' src={this.props.track.image_url}/>
           <div className='track-item-info'>
             <Link to={`/tracks/${this.props.track.id}`} className= 'track-page-link'>
               <div>{this.props.track.name}</div>
