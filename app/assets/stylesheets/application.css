@@ -431,10 +431,17 @@
   cursor: pointer;
   margin-bottom: 100px;
 }
-
 .upload-title{
   margin: auto;
   margin-top: 5px;
   margin-bottom: 30px;
   font-size: 30px
+}
+.play-bar{
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  z-index: 100;
+  background-color: tan;
+  height: 45px;
 }

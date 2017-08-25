@@ -5,6 +5,7 @@ import { Route, Switch } from 'react-router-dom';
 import { AuthRoute, ProtectedRoute } from '../util/route_util.jsx';
 import UploadContainer from './upload/upload_container';
 import TrackShowContainer from './track/track_show_container';
+import PlayBarContainer from './play_bar/play_bar_container';
 
 const App = () => (
   <div>
@@ -14,6 +15,9 @@ const App = () => (
       <ProtectedRoute path='/tracks/:id' exact component= {TrackShowContainer} />
       <AuthRoute path='/' exact component= {HomeContainer} />
     </Switch>
+    <footer>
+      <PlayBarContainer />
+    </footer>
   </div>
 );
 

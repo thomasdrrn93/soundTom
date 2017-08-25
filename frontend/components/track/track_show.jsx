@@ -11,7 +11,6 @@ class TrackShow extends React.Component{
  }
 
   render() {
-    debugger;
     const track = this.props.track;
     return(
       (typeof track === 'undefined') ?
