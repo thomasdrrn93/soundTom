@@ -35,7 +35,7 @@ gem 'rails_12factor'
 
 gem 'figaro'
 gem 'aws-sdk', '>= 2.0'
-
+gem 'taglib-ruby'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
