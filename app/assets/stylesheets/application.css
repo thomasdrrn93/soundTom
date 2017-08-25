@@ -216,7 +216,6 @@
   font-size: 16px;
   height: 100%;
   margin-left: 10px;
-  margin-top: 4px;
  }
  #logout-nav:hover{
    color: white;
@@ -296,6 +295,9 @@
   height: 30px;
   display: inline;
 }
+.genre-text{
+  margin-top: 7px;
+}
 .track-show-profile{
   margin-top: 45px;
   width: 100%;
@@ -310,7 +312,7 @@
   margin: 0 10px;
   display: flex;
   flex-direction: column;
-  margin-top: 30px;
+  margin-top: 40px;
 }
 
 .track-center-profile{
@@ -393,7 +395,7 @@
   outline: none;
 }
 .set-space-div{
-  margin-bottom: 5px;
+  margin-bottom: 10px;
 }
 .file-input{
   display: none;

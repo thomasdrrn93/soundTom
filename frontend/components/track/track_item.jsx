@@ -24,7 +24,9 @@ class TrackItem extends React.Component{
             <Link to={`/tracks/${this.props.track.id}`} className= 'track-page-link'>
               <div>{this.props.track.name}</div>
             </Link>
-            <div className='track-genre'>{this.props.track.genre}</div>
+            <div className='track-genre'>
+              <div className='genre-text'>{this.props.track.genre}</div>
+            </div>
           </div>
       </li>
     );
