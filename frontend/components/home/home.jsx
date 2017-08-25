@@ -1,5 +1,5 @@
 import React from 'react';
-import SessionModal from '../modals/session_modal';
+import SessionModalContainer from '../modals/session_modal_container';
 
 class Home extends React.Component {
     constructor(props){
@@ -21,14 +21,14 @@ class Home extends React.Component {
           <div id="top-section-buttons">
             <button className='button' id='guest' onClick={this.guestLogin}>Guest Demo</button>
             &nbsp;
-            <SessionModal type="Sign In"/>
+            <SessionModalContainer type="Sign In"/>
             &nbsp;
-            <SessionModal type="Sign Up"/>
+            <SessionModalContainer type="Sign Up"/>
           </div>
           <div className="top-section-center">
             <h2 id="top-section-center-title">Connect on SoundTom</h2>
             <p id="top-section-center-text">Discover, stream, and share a constantly expanding mix of music from emerging and major artists around the world.</p>
-            <SessionModal type="Sign up for free" />
+            <SessionModalContainer type="Sign up for free" />
           </div>
         </div>
       </div>

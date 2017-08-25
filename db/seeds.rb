@@ -30,15 +30,15 @@ Track.create!({name: 'Let it Happen', genre: 'rock', uploader_id: user9.id, imag
   audio: File.open('app/assets/songs/Let-It-Happen.mp3')})
 Track.create!({name: 'Money Trees', genre: 'rap', uploader_id: user3.id, image: File.open('app/assets/images/KendrickGKMC.jpg'),
   audio: File.open('app/assets/songs/Money-Trees.mp3')})
-Track.create({name: 'Simple Twist of Faith', genre: 'rock', uploader_id: user7.id, image: File.open('app/assets/images/bob.jpg'),
+Track.create!({name: 'Simple Twist of Faith', genre: 'rock', uploader_id: user7.id, image: File.open('app/assets/images/bob.jpg'),
   audio: File.open('app/assets/songs/Simple-Twist-of-Faith.mp3')})
-Track.create({name: 'The National Anthem', genre: 'rock', uploader_id: user10.id, image: File.open('app/assets/images/kid-a.jpg'),
+Track.create!({name: 'The National Anthem', genre: 'rock', uploader_id: user10.id, image: File.open('app/assets/images/kid-a.jpg'),
   audio: File.open('app/assets/songs/The-National-Anthem.mp3')})
-Track.create({name: 'Dance Yrself Clean', genre: 'rock', uploader_id: user5.id, image: File.open('app/assets/images/lcd.jpg'),
+Track.create!({name: 'Dance Yrself Clean', genre: 'rock', uploader_id: user5.id, image: File.open('app/assets/images/lcd.jpg'),
   audio: File.open('app/assets/songs/Dance-Yrself-Clean.mp3')})
-Track.create({name: 'Burn the Witch', genre: 'rock', uploader_id: user10.id, image: File.open('app/assets/images/moon.jpg'),
+Track.create!({name: 'Burn the Witch', genre: 'rock', uploader_id: user10.id, image: File.open('app/assets/images/moon.jpg'),
   audio: File.open('app/assets/songs/Burn-the-Witch.mp3')})
-Track.create({name: 'Summer Friends', genre: 'rock', uploader_id: user8.id, image: File.open('app/assets/images/chance-3-artwork.jpg'),
+Track.create!({name: 'Summer Friends', genre: 'rock', uploader_id: user8.id, image: File.open('app/assets/images/chance-3-artwork.jpg'),
   audio: File.open('app/assets/songs/Summer-Friends.mp3')})
-Track.create({name: 'All My Friends', genre: 'rock', uploader_id: user5.id, image: File.open('app/assets/images/sos.jpg'),
+Track.create!({name: 'All My Friends', genre: 'rock', uploader_id: user5.id, image: File.open('app/assets/images/sos.jpg'),
   audio: File.open('app/assets/songs/All-My-Friends.mp3')})

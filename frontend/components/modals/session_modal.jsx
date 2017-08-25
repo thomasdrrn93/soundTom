@@ -28,15 +28,14 @@ class SessionModal extends React.Component {
       this.closeModal = this.closeModal.bind(this);
     }
   openModal() {
-    debugger;
     this.setState({modalIsOpen: true});
   }
   closeModal() {
+   this.props.clearErrors();
    this.setState({modalIsOpen: false});
   }
 
   render(){
-    debugger;
     let button;
     if (this.props.type === 'Sign In') {
       button = (<button className="button" id="sign-in" type="button"
