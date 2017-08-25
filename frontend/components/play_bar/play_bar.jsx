@@ -8,13 +8,30 @@ class PlayBar extends React.Component{
     this.pauseAudio = this.pauseAudio.bind(this);
   }
 
+
+  componentDidUpdate(){
+    if (this.props.currentSong){
+    this.props.status === 'play' ? this.playAudio() : this.pauseAudio();
+    }
+  }
+
   playAudio(){
+    this.audioTag.volume = 0;
     this.audioTag.play();
   }
 
   pauseAudio(){
     debugger;
     this.audioTag.pause();
+  }
+
+  trackLenght(){
+    const duration = this.audioTag.duration;
+    let minutes = Math.floor(duration / 60);
+    let seconds = Math.floor(duration - minutes * 60);
+    minutes = minutes.toString();
+    seconds = seconds.toString();
+    return minutes + ":" + seconds;
   }
 
 
@@ -24,7 +41,11 @@ class PlayBar extends React.Component{
       return(
       <div className='play-bar'>
         <audio src={audio} ref={(elm) => {this.audioTag = elm}}></audio>
-        {this.props.status === 'play' ? this.playAudio() : this.pauseAudio()}
+        <div className='progress'>
+          <div className= 'progress-line'>
+
+          </div>
+        </div>
       </div>
       );
     } else{
