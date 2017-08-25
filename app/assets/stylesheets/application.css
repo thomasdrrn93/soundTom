@@ -13,6 +13,8 @@
  *= require_tree .
  *= require_self
  */
+ @import ('./reset.css');
+ @import url('https://fonts.googleapis.com/css?family=Overpass:400,700');
 
  html{
    height: 100%;
@@ -22,7 +24,7 @@
    margin: 0px;
    padding: 0px;
    background-color: #f2f2f2;
-   font-family: "Interstate","Lucida Grande","Lucida Sans Unicode","Lucida Sans",Garuda,Verdana,Tahoma,sans-serif;
+   font-family: 'Overpass', sans-serif;
    font-weight: 100;
  }
 
