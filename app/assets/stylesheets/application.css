@@ -448,17 +448,20 @@
   height: 45px;
   border-top: 1px solid #cecece;
 }
-.progress{
+.progress-container{
   width: 600px;
   height: inherit;
   margin: auto;
-  background: blue;
   align-items: center;
   display: flex
 }
-.progress-line{
+#progress{
   width: 70%;
   height: 1px;
   background: black;
   margin: auto;
+  cursor: pointer;
+}
+#change-button{
+  background-color: #f50;
 }
