@@ -9,7 +9,7 @@ export const receiveSingleUser = (user) => {
   };
 };
 
-export const fetchOneTrack = (user) => (dispatch) =>{
-  return APIUtil.fetchOneTrack(user)
+export const fetchOneUser = (user) => (dispatch) =>{
+  return APIUtil.fetchSingleUser(user)
     .then(user => dispatch(receiveSingleUser(user)));
 };

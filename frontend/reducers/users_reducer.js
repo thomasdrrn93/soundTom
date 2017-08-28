@@ -5,7 +5,7 @@ const usersReducer = (state = {}, action) =>{
   switch(action.type){
     case RECEIVE_SINGLE_USER:
       action.user.tracks = Object.keys(action.user.tracks);
-      return action.user;
+      return {[action.user.id]: action.user};
     default:
       return state;
   }

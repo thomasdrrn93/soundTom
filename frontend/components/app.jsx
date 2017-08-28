@@ -6,6 +6,7 @@ import { AuthRoute, ProtectedRoute } from '../util/route_util.jsx';
 import UploadContainer from './upload/upload_container';
 import TrackShowContainer from './track/track_show_container';
 import PlayBarContainer from './play_bar/play_bar_container';
+import UserPageContainer from './user/user_page_container';
 
 const App = () => (
   <div>
@@ -13,6 +14,7 @@ const App = () => (
       <ProtectedRoute path='/stream' exact component= {StreamContainer} />
       <ProtectedRoute path='/upload' exact component= {UploadContainer} />
       <ProtectedRoute path='/tracks/:id' exact component= {TrackShowContainer} />
+      <ProtectedRoute path='/users/:id' exact component= {UserPageContainer} />
       <AuthRoute path='/' exact component= {HomeContainer} />
     </Switch>
     <footer>

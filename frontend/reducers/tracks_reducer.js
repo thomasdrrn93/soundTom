@@ -1,4 +1,5 @@
-import { RECEIVE_SINGLE_TRACK, RECEIVE_ALL_TRACKS, RECEIVE_ERRORS } from '../actions/track_actions';
+import { RECEIVE_SINGLE_TRACK, RECEIVE_ALL_TRACKS,
+  RECEIVE_ERRORS, RECEIVE_SINGLE_USER } from '../actions/track_actions';
 
 
 const tracksReducer = (state = {}, action) =>{
@@ -9,6 +10,9 @@ const tracksReducer = (state = {}, action) =>{
       return Object.assign({}, state, newTrack);
     case RECEIVE_ALL_TRACKS:
       return action.tracks;
+    case RECEIVE_SINGLE_USER:
+      const newTracks = action.user.tracks;
+      return Object.assign({}, state, newTracks);
     default:
       return state;
   }
