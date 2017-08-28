@@ -6,18 +6,31 @@ class TrackItem extends React.Component{
     super(props);
 
     this.handleAudio = this.handleAudio.bind(this);
+    this.findQueue = this.findQueue.bind(this);
   }
 
   handleAudio(){
     if (this.props.currentSong === this.props.track){
       if (this.props.status === 'pause'){
-        this.props.receiveCurrrentTrack(this.props.track, 'play');
+        this.props.receiveCurrrentTrack(this.props.track, 'play',
+          this.findQueue());
       } else {
-        this.props.receiveCurrrentTrack(this.props.track, 'pause');
+        this.props.receiveCurrrentTrack(this.props.track, 'pause',
+          this.findQueue());
       }
     } else {
-      this.props.receiveCurrrentTrack(this.props.track, 'play');
+        this.props.receiveCurrrentTrack(this.props.track, 'play',
+          this.findQueue());
     }
+  }
+
+  findQueue(){
+    const cb = (elm) => {return elm === this.props.track;};
+    const queue = this.props.queue;
+    const index = queue.findIndex(cb);
+    const second = queue.slice(index + 1, queue.length);
+    const first = queue.slice(0, index);
+    return second.concat(first).concat(queue[index]);
   }
 
   render(){
@@ -29,6 +42,11 @@ class TrackItem extends React.Component{
     </div>: <div className="circle-medium"onClick={this.handleAudio}>
       <div className="circle-inner"></div>
       </div>;
+      const edit = this.props.currentUser.id === this.props.track.uploader_id ?
+        <div className='edit-button'></div> : <div></div>;
+      const remove = this.props.currentUser.id ===
+          this.props.track.uploader_id ? <div className='delete-button'></div>
+            : <div></div>;
     return(
       <li key={this.props.track.id} className='single-track'>
           <img className='track-item-pic' src={this.props.track.image}/>
@@ -42,6 +60,10 @@ class TrackItem extends React.Component{
                 <div className= 'track-page-link'>{this.props.track.name}</div>
               </Link>
             </div>
+          </div>
+          <div className='buttons'>
+            {edit}
+            {remove}
           </div>
       </li>
     );

@@ -1,6 +1,6 @@
 import React from 'react';
 import NavBarContainer from '../nav_bar/nav_bar_container';
-
+import TrackItemContainer from '../track/track_item_container';
 class UserPage extends React.Component{
   constructor(props){
     super(props);
@@ -12,6 +12,7 @@ class UserPage extends React.Component{
 
   render() {
     const user = this.props.user;
+    const tracks = this.props.tracks;
     const bStyle = user ? {background: 'url(' + user.cover_pic + ')'} : {};
     const location =<div className='artist-location'>location</div>;
     return(
@@ -34,6 +35,13 @@ class UserPage extends React.Component{
               </div>
             </div>
           </div>
+          <div className='title'>
+            <div className='title-text'>Tracks</div>
+          </div>
+          <ul id='stream-track-list' className='stream'>
+            {tracks.map(track => <TrackItemContainer key={track.id}
+              track={track} queue={tracks} />)}
+            </ul>
         </div>
       </div>
     );

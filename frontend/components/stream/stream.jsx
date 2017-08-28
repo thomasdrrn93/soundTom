@@ -27,7 +27,8 @@ class Stream extends React.Component{
             <div className='title-text'>Stream</div>
           </div>
           <ul id='stream-track-list' className='stream'>
-            {tracks.map(track => <TrackItemContainer key={track.id} track={track} />)}
+            {tracks.map(track => <TrackItemContainer key={track.id}
+              track={track} queue={tracks} />)}
 
           </ul>
         </div>

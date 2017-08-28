@@ -5,13 +5,15 @@ import { connect } from 'react-redux';
 const mapStateToProps = (state) =>{
   return{
     currentSong: state.playing.currentSong,
-    status: state.playing.status
+    status: state.playing.status,
+    queue: state.playing.queue
   };
 };
 
 const mapDispatchToProps = (dispatch) =>{
   return{
-    receiveCurrrentTrack: (track, status) => dispatch(receiveCurrrentTrack(track, status))
+    receiveCurrrentTrack: (track, status, queue) =>
+      dispatch(receiveCurrrentTrack(track, status, queue))
   };
 };
 

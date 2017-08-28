@@ -20,17 +20,23 @@ class PlayBar extends React.Component{
     this.handleNext = this.handleNext.bind(this);
   }
 
+  componentDidMount() {
+  }
+
 
   componentDidUpdate(){
+    if(this.audioTag){
+      this.audioTag.addEventListener('ended', () => {debugger; this.handleNext();});
+    }
     if (this.props.currentSong){
-    this.props.status === 'play' ? this.playAudio() : this.pauseAudio();
+      this.props.status === 'play' ? this.playAudio() : this.pauseAudio();
     }
   }
 
 
   playAudio(){
     this.audioTag.play();
-    setInterval(() => this.interval(), 200);
+    setInterval(() => this.interval(), 2000);
   }
 
   interval(){
@@ -54,10 +60,19 @@ class PlayBar extends React.Component{
   }
 
   handlePrev(){
-
+    const queue = this.props.queue;
+    const prev = queue[queue.length - 2];
+    const next = queue[queue.length - 1];
+    const end = queue.slice(0, queue.length -1);
+    this.props.receiveCurrrentTrack(prev, 'play',
+      [next].concat(end));
   }
 
   handleNext(){
+    const queue = this.props.queue;
+    const next = queue[0];
+    this.props.receiveCurrrentTrack(next, 'play',
+      queue.slice(1,queue.length).concat(next));
 
   }
 
@@ -84,7 +99,6 @@ class PlayBar extends React.Component{
     const progress = this.prog;
     const length = this.trackLength(audio.duration);
     const currentTime = this.currentValue(audio.currentTime);
-
     this.setState({currentTime: currentTime, duration: length});
 
     progress.value = (audio.currentTime / audio.duration);
@@ -101,10 +115,14 @@ class PlayBar extends React.Component{
 
 
   render(){
+
+    let audio = null;
     if (this.props.currentSong){
-      const audio = this.props.currentSong.audio;
-      const player = <audio src={audio} preload="metadata"
-        ref={(elm) => {this.audioTag = elm;}}></audio>;
+      audio = this.props.currentSong.audio;
+      // const player = <audio src={audio} preload="metadata"
+      //   ref={(elm) => {this.audioTag = elm;}}>
+      // </audio>;
+
       let currentTime;
       const songCover = this.props.currentSong.image;
       const title = this.props.currentSong.name;
@@ -131,10 +149,13 @@ class PlayBar extends React.Component{
         onClick={this.handlePrev} className='player-button' />;
       const nextButton = <img
         src='https://a-v2.sndcdn.com/assets/images/playback/skip-9b481fb.svg'
-        onClick={this.handleNex} className='player-button' />;
+        onClick={this.handleNext} className='player-button' />;
     return(
       <div className='play-bar'>
-        {player}
+        <audio src={audio} preload="metadata"
+          ref={(elm) => {this.audioTag = elm;}}
+        >
+        </audio>;
         <div id='player-buttons'>
           {prevButton}
           {this.props.status === 'play' ? pauseButton : playButton}
@@ -168,3 +189,6 @@ class PlayBar extends React.Component{
   }
 }
 export default PlayBar;
+
+
+// $('main').append("<audio src='http://s3.amazonaws.com/soundtom-dev/tracks/audios/000/000/040/original/Dance-Yrself-Clean.mp3?1503499163'></audio>")

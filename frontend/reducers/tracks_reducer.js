@@ -1,5 +1,6 @@
 import { RECEIVE_SINGLE_TRACK, RECEIVE_ALL_TRACKS,
-  RECEIVE_ERRORS, RECEIVE_SINGLE_USER } from '../actions/track_actions';
+  RECEIVE_ERRORS} from '../actions/track_actions';
+import { RECEIVE_SINGLE_USER } from '../actions/user_actions';  
 
 
 const tracksReducer = (state = {}, action) =>{

@@ -5,13 +5,15 @@ import { receiveCurrrentTrack } from '../../actions/play_bar_actions';
 const mapStateToProps = (state) => {
   return{
     currentSong: state.playing.currentSong,
-    status: state.playing.status
+    status: state.playing.status,
+    currentUser: state.session.currentUser
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    receiveCurrrentTrack: (track, status) => dispatch(receiveCurrrentTrack(track, status))
+    receiveCurrrentTrack: (track, status, queue) =>
+      dispatch(receiveCurrrentTrack(track, status, queue))
   };
 };
 
