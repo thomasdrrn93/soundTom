@@ -106,7 +106,7 @@ class PlayBar extends React.Component{
       const player = <audio src={audio} preload="metadata"
         ref={(elm) => {this.audioTag = elm;}}></audio>;
       let currentTime;
-      const songCover = this.props.currentSong.image_url;
+      const songCover = this.props.currentSong.image;
       const title = this.props.currentSong.name;
       if (this.state.currentTime){
         currentTime = this.state.currentTime;

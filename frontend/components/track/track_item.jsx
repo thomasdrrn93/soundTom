@@ -23,7 +23,7 @@ class TrackItem extends React.Component{
   render(){
     return(
       <li key={this.props.track.id} className='single-track'>
-          <img onClick= {this.handleAudio} className='track-item-pic' src={this.props.track.image_url}/>
+          <img onClick= {this.handleAudio} className='track-item-pic' src={this.props.track.image}/>
           <div className='track-item-info'>
             <Link to={`/tracks/${this.props.track.id}`} className= 'track-page-link'>
               <div>{this.props.track.name}</div>

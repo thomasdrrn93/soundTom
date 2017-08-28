@@ -39,7 +39,7 @@ class TrackShow extends React.Component{
               <div className='track-show-genre'>{track.genre}</div>
             </div>
             <div className='track-right-profile'>
-              <img className='track-profile-pic' src= {track.image_url} />
+              <img className='track-profile-pic' src= {track.image} />
             </div>
           </div>
         </div>
