@@ -3,6 +3,14 @@ import * as APIUtil from '../util/tracks_util';
 export const RECEIVE_SINGLE_TRACK = 'RECEIVE_SINGLE_TRACK';
 export const RECEIVE_ALL_TRACKS = 'RECEIVE_ALL_TRACKS';
 export const RECEIVE_TRACK_ERRORS = 'RECEIVE_TRACK_ERRORS';
+export const DELETE_TRACK = 'DELETE_TRACK';
+
+export const removeTrack = (track) => {
+  return{
+    type: DELETE_TRACK,
+    track
+  };
+};
 
 export const receiveSingleTrack = (track) => {
   return{
@@ -25,15 +33,20 @@ export const receiveAllTracks = (tracks) => {
   };
 };
 
+export const destroyTrack = (track) => (dispatch) =>{
+  return APIUtil.destroyTrack(track).then(track => dispatch(removeTrack(track)));
+};
+
 export const createNewTrack = (track) => (dispatch) =>{
   return APIUtil.createTrack(track)
     .then(track => dispatch(receiveSingleTrack(track)),
   err => (dispatch(receiveErrors(err.responseJSON))));
 };
 
-export const updateTrack = (track) => (dispatch) =>{
-  return APIUtil.updateTrack(track)
-    .then(track => dispatch(receiveSingleTrack(track)));
+export const updateTrack = (track, id) => (dispatch) =>{
+  return APIUtil.updateTrack(track, id)
+    .then(track => dispatch(receiveSingleTrack(track)),
+  err => (dispatch(receiveErrors(err.responseJSON))));
 };
 
 export const fetchOneTrack = (track) => (dispatch) =>{

@@ -1,5 +1,5 @@
 import React from 'react';
-import TrackItem from '../track/track_item';
+import TrackItemContainer from '../track/track_item_container';
 import NavBarContainer from '../nav_bar/nav_bar_container';
 
 class Stream extends React.Component{
@@ -27,7 +27,8 @@ class Stream extends React.Component{
             <div className='title-text'>Stream</div>
           </div>
           <ul id='stream-track-list' className='stream'>
-            {tracks.map(track => <TrackItem key={track.id} track={track} />)}
+            {tracks.map(track => <TrackItemContainer key={track.id}
+              track={track} queue={tracks} />)}
 
           </ul>
         </div>

@@ -6,6 +6,15 @@ class User < ApplicationRecord
   after_initialize :ensure_session_token
   attr_reader :password
 
+  has_attached_file :profile_pic, default_url: "default.png"
+  validates_attachment_content_type :profile_pic, content_type: /\Aimage\/.*\z/
+
+  has_attached_file :cover_pic, :styles => {
+      thumb: "100x100#",
+      small: "150x150>",
+      medium: "1200x200" }, default_url: "sample.jpg"
+  validates_attachment_content_type :cover_pic, content_type: /\Aimage\/.*\z/
+
   has_many :tracks,
     primary_key: :id,
     foreign_key: :uploader_id,
