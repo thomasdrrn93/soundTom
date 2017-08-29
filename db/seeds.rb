@@ -19,7 +19,7 @@ user10 = User.create!({username: 'Radiohead', password: 'password'})
 
 Track.destroy_all
 Track.create!({name: 'My Girls', genre: 'rock', uploader_id: user2.id, image: File.open('app/assets/images/mpp.jpg'),
-  audio: 'http://s3.amazonaws.com/soundtom-dev/tracks/audios/000/000/032/original/My-Girls.mp3?1503499031'})
+  audio: "http://s3.amazonaws.com/soundtom-dev/tracks/audios/000/000/032/original/My-Girls.mp3?1503499031"})
 Track.create!({name: 'Like a Rolling Stone', genre: 'rock', uploader_id: user7.id, image: File.open('app/assets/images/dylan.jpg'),
   audio: 'http://s3.amazonaws.com/soundtom-dev/tracks/audios/000/000/033/original/Like-A-Rolling-Stone.mp3?1503499050
 '})
