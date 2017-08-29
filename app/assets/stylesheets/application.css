@@ -230,6 +230,8 @@ a{
  }
 #stream-track-list{
   list-style: none;
+  margin-top: 40px;
+  margin-left: 40px;
 }
 .after-header{
   margin-top: 45px;
@@ -466,6 +468,7 @@ a{
   border: solid 1px black;
   width: 110px;
   text-align: center;
+  border-radius: 10px;
 }
 
 .upload-form{
@@ -478,7 +481,6 @@ a{
   display: flex;
   width: 300px;
   margin: auto;
-  border: 1px solid black
 }
 .file-label{
   margin: auto;
@@ -679,4 +681,47 @@ progress[value]::-webkit-progress-value {
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
+}
+.artist-profile-pic{
+  width: 105px;
+  height: 20px;
+  background: rgba(255,255,255,.8);
+  position: absolute;
+  left: 105px;
+  top: 275px;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  padding-left: 10px;
+  padding-right: 11px;
+  color: #333;
+  text-align: center;
+  opacity: .5;
+  font-size: 14px;
+  border-radius: 3px;
+  cursor: pointer;
+}
+.artist-cover-pic{
+  width: 150px;
+  height: 20px;
+  background: rgba(255,255,255,.8);
+  position: absolute;
+  right: 100px;
+  top: 60px;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  padding-left: 10px;
+  padding-right: 11px;
+  color: #333;
+  text-align: center;
+  opacity: .5;
+  font-size: 14px;
+  border-radius: 3px;
+  cursor: pointer;
+}
+#nav-upload{
+  color: #ccc;
+  cursor: pointer;
+}
+#nav-upload:hover{
+  color: white;
 }

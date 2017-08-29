@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import UploadModal from '../modals/upload_modal';
+import UploadModalContainer from '../modals/upload_modal_container';
 
 class NavBar extends React.Component{
   constructor(props){
@@ -23,7 +23,7 @@ class NavBar extends React.Component{
           </a>
         </div>
         <div id='right-nav'>
-          <UploadModal />
+          <UploadModalContainer />
           <a href= {`/#/users/${this.props.currentUser.id}`} className='nav-links'>
             <div>{this.props.currentUser.username}</div>
           </a>

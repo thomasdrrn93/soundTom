@@ -35,7 +35,7 @@ class PlayBar extends React.Component{
 
   playAudio(){
     this.audioTag.play();
-    setInterval(() => this.interval(), 2000);
+    setInterval(() => this.interval(), 200);
   }
 
   interval(){

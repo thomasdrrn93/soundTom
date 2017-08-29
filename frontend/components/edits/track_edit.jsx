@@ -59,7 +59,7 @@ class TrackEdit extends React.Component{
     return (
       <div className= 'upload-div'>
         <form onSubmit={this.handleSubmit} className='upload-form'>
-          <div className='upload-title'>Edit {this.props.track.name}</div>
+          <div className='upload-title'>{this.props.track.name}</div>
           <label htmlFor='upload-image' className='file-label'>
             <div className='file-div'>Update Image</div>
             <input className='file-input'
