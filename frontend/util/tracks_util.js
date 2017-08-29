@@ -22,15 +22,17 @@ export const createTrack = (track) => {
   });
 };
 
-export const updateTrack = (track) => {
+export const updateTrack = (track, id) => {
   return $.ajax({
     method: "PATCH",
-    url: `/api/tracks/${track.id}`
+    url: `/api/tracks/${id}`,
+    data: track,
+    processData: false,
+    contentType: false
   });
 };
 
 export const destroyTrack = (track) => {
-  debugger;
   return $.ajax({
     method: "DELETE",
     url: `api/tracks/${track.id}`

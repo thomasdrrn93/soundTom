@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import TrackEditModal from '../modals/edit_track_modal';
 
 class TrackItem extends React.Component{
   constructor(props){
@@ -48,7 +49,7 @@ class TrackItem extends React.Component{
       <div className="circle-inner"></div>
       </div>;
       const edit = this.props.currentUser.id === this.props.track.uploader_id ?
-        <div className='edit-button'>Edit</div> : <div></div>;
+        <TrackEditModal track={this.props.track} /> : <div></div>;
       const remove = this.props.currentUser.id ===
           this.props.track.uploader_id ? <div className='delete-button'
             onClick={this.deleteTrack}>Delete</div>

@@ -6,7 +6,6 @@ export const RECEIVE_TRACK_ERRORS = 'RECEIVE_TRACK_ERRORS';
 export const DELETE_TRACK = 'DELETE_TRACK';
 
 export const removeTrack = (track) => {
-  debugger;
   return{
     type: DELETE_TRACK,
     track
@@ -35,7 +34,6 @@ export const receiveAllTracks = (tracks) => {
 };
 
 export const destroyTrack = (track) => (dispatch) =>{
-  debugger;
   return APIUtil.destroyTrack(track).then(track => dispatch(removeTrack(track)));
 };
 
@@ -45,9 +43,10 @@ export const createNewTrack = (track) => (dispatch) =>{
   err => (dispatch(receiveErrors(err.responseJSON))));
 };
 
-export const updateTrack = (track) => (dispatch) =>{
-  return APIUtil.updateTrack(track)
-    .then(track => dispatch(receiveSingleTrack(track)));
+export const updateTrack = (track, id) => (dispatch) =>{
+  return APIUtil.updateTrack(track, id)
+    .then(track => dispatch(receiveSingleTrack(track)),
+  err => (dispatch(receiveErrors(err.responseJSON))));
 };
 
 export const fetchOneTrack = (track) => (dispatch) =>{
