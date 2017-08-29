@@ -62,7 +62,6 @@ class UserPage extends React.Component{
               {profile}
               <div className='artist-and-location'>
                 <div className='artist-name'>{user.username} </div>
-                {location}
               </div>
             </div>
             {cover}

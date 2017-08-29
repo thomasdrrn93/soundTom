@@ -21,7 +21,7 @@ class PlayBar extends React.Component{
   }
 
   componentDidMount() {
-    this.audioTag.addEventListener('ended', () => {debugger; this.handleNext();});
+    this.audioTag.addEventListener('ended', () => {this.handleNext();});
 
   }
 
@@ -35,7 +35,7 @@ class PlayBar extends React.Component{
 
   playAudio(){
     this.audioTag.play();
-    setInterval(() => this.interval(), 200);
+    setInterval(() => this.interval(), 2000);
   }
 
   interval(){
@@ -193,6 +193,3 @@ class PlayBar extends React.Component{
   }
 }
 export default PlayBar;
-
-
-// $('main').append("<audio src='http://s3.amazonaws.com/soundtom-dev/tracks/audios/000/000/040/original/Dance-Yrself-Clean.mp3?1503499163'></audio>")
