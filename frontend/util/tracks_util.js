@@ -28,3 +28,11 @@ export const updateTrack = (track) => {
     url: `/api/tracks/${track.id}`
   });
 };
+
+export const destroyTrack = (track) => {
+  debugger;
+  return $.ajax({
+    method: "DELETE",
+    url: `api/tracks/${track.id}`
+  });
+};

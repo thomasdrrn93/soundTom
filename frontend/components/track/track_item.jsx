@@ -7,6 +7,11 @@ class TrackItem extends React.Component{
 
     this.handleAudio = this.handleAudio.bind(this);
     this.findQueue = this.findQueue.bind(this);
+    this.deleteTrack = this.deleteTrack.bind(this);
+  }
+
+  deleteTrack(){
+    this.props.deleteTrack(this.props.track);
   }
 
   handleAudio(){
@@ -43,27 +48,30 @@ class TrackItem extends React.Component{
       <div className="circle-inner"></div>
       </div>;
       const edit = this.props.currentUser.id === this.props.track.uploader_id ?
-        <div className='edit-button'></div> : <div></div>;
+        <div className='edit-button'>Edit</div> : <div></div>;
       const remove = this.props.currentUser.id ===
-          this.props.track.uploader_id ? <div className='delete-button'></div>
-            : <div></div>;
+          this.props.track.uploader_id ? <div className='delete-button'
+            onClick={this.deleteTrack}>Delete</div>
+        : <div></div>;
     return(
       <li key={this.props.track.id} className='single-track'>
           <img className='track-item-pic' src={this.props.track.image}/>
-          <div className='track-item-info'>
-            {playB}
-            <div className='track-user-song'>
-              <Link to={`/users/${this.props.track.uploader_id}`}>
-                <div className= 'user-page-link'>{this.props.track.user}</div>
-              </Link>
-              <Link to={`/tracks/${this.props.track.id}`}>
-                <div className= 'track-page-link'>{this.props.track.name}</div>
-              </Link>
+          <div className= 'track-item-info-container'>
+            <div className='track-item-info'>
+              {playB}
+              <div className='track-user-song'>
+                <Link to={`/users/${this.props.track.uploader_id}`}>
+                  <div className= 'user-page-link'>{this.props.track.user}</div>
+                </Link>
+                <Link to={`/tracks/${this.props.track.id}`}>
+                  <div className= 'track-page-link'>{this.props.track.name}</div>
+                </Link>
+              </div>
             </div>
-          </div>
-          <div className='buttons'>
-            {edit}
-            {remove}
+            <div className='buttons'>
+              {edit}
+              {remove}
+            </div>
           </div>
       </li>
     );

@@ -21,13 +21,12 @@ class PlayBar extends React.Component{
   }
 
   componentDidMount() {
+    this.audioTag.addEventListener('ended', () => {debugger; this.handleNext();});
+
   }
 
 
   componentDidUpdate(){
-    if(this.audioTag){
-      this.audioTag.addEventListener('ended', () => {debugger; this.handleNext();});
-    }
     if (this.props.currentSong){
       this.props.status === 'play' ? this.playAudio() : this.pauseAudio();
     }
@@ -155,7 +154,7 @@ class PlayBar extends React.Component{
         <audio src={audio} preload="metadata"
           ref={(elm) => {this.audioTag = elm;}}
         >
-        </audio>;
+        </audio>
         <div id='player-buttons'>
           {prevButton}
           {this.props.status === 'play' ? pauseButton : playButton}
@@ -183,7 +182,12 @@ class PlayBar extends React.Component{
       );
     } else{
         return(
-          <div></div>
+          <div style={{display: 'none'}}>
+            <audio src={audio} preload="metadata"
+              ref={(elm) => {this.audioTag = elm;}}
+            >
+            </audio>
+          </div>
       );
     }
   }

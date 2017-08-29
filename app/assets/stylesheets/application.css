@@ -646,3 +646,31 @@ progress[value]::-webkit-progress-value {
   padding: 2px 7px;
   display: inline;
 }
+.track-item-info-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.edit-button{
+  padding-bottom: 2px;
+  padding-left: 10px;
+  padding-right: 11px;
+  padding-top: 2px;
+  border: 1px solid #e5e5e5;
+  font-size: 14px;
+  cursor: pointer;
+}
+.delete-button{
+  padding-bottom: 2px;
+  padding-left: 10px;
+  padding-right: 11px;
+  padding-top: 2px;
+  border: 1px solid #e5e5e5;
+  font-size: 14px;
+  cursor: pointer;
+}
+.buttons{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}

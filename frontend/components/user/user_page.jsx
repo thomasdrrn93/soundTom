@@ -8,13 +8,13 @@ class UserPage extends React.Component{
   componentDidMount(){
     this.props.fetchOneUser({id: this.props.match.params.id});
   }
-
-
+  
   render() {
     const user = this.props.user;
     const tracks = this.props.tracks;
     const bStyle = user ? {background: 'url(' + user.cover_pic + ')'} : {};
     const location =<div className='artist-location'>location</div>;
+    // this.props.user.id === this.props.currentUser.id ? <div className='edit-button'></div>
     return(
       (typeof user === 'undefined') ?
       <header>
