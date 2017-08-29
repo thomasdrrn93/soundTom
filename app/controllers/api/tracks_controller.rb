@@ -27,14 +27,15 @@ class Api::TracksController < ApplicationController
   end
 
   def destroy
-    @track = Track.find(params[:id]);
+    @track = Track.find(params[:id])
     @track.destroy
     render json: @track
   end
 
   private
 
-    def track_params
-      params.require(:track).permit(:name, :genre, :audio, :uploader_id, :image, :uploader_id)
-    end
+  def track_params
+    params.require(:track)
+      .permit(:name, :genre, :audio, :uploader_id, :image, :uploader_id)
+  end
 end
