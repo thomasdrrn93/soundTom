@@ -725,3 +725,29 @@ progress[value]::-webkit-progress-value {
 #nav-upload:hover{
   color: white;
 }
+#comment-form-container{
+  width: 1180px;
+  margin: auto;
+  margin-top: 20px;
+  height: 40px;
+  opacity: 1;
+  padding: 5px;
+  border: 1px solid #e5e5e5;
+  background: #f2f2f2;
+  display:flex;
+}
+#create-comment{
+  margin-top: 8px;
+  margin-left: 40px;
+  width: 1128px;
+  background: white;
+  line-height: 30px;
+  padding: 0px 9px;
+  outline: none;
+  cursor: pointer;
+  height: 27px;
+}
+#comment-pic{
+  height: 40px;
+  width: 40px;
+}

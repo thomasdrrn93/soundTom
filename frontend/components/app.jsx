@@ -2,7 +2,7 @@ import React from 'react';
 import HomeContainer from './home/home_container';
 import  StreamContainer from './stream/stream_container';
 import { Route, Switch } from 'react-router-dom';
-import { AuthRoute, ProtectedRoute } from '../util/route_util.jsx';
+import { AuthRoute, ProtectedRoute } from '../util/route_util.js';
 import UploadContainer from './upload/upload_container';
 import TrackShowContainer from './track/track_show_container';
 import PlayBarContainer from './play_bar/play_bar_container';

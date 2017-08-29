@@ -6,8 +6,14 @@ class TrackShow extends React.Component{
   constructor(props){
     super(props);
 
+    this.state = {
+      body: ''
+    };
+
     this.handlePlay = this.handlePlay.bind(this);
     this.handlePause = this.handlePause.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleChange= this.handleChange.bind(this);
   }
 
   componentDidMount() {
@@ -20,6 +26,19 @@ class TrackShow extends React.Component{
 
  handlePause(){
    this.props.receiveCurrrentTrack(this.props.track, 'pause');
+ }
+
+ handleChange(e){
+   return (this.setState({
+     body: e.currentTarget.value
+   }));
+ }
+
+ handleSubmit(e){
+   e.preventDefault;
+   const comment = {commenter_id: this.props.currentUser.id,
+     body: this.state.body, track_id: this.props.track.id};
+   this.props.createComment(this.state);
  }
 
   render() {
@@ -63,6 +82,13 @@ class TrackShow extends React.Component{
             <div className='track-right-profile'>
               <img className='track-profile-pic' src= {track.image} />
             </div>
+          </div>
+          <div id='comment-form-container'>
+            <img src={this.props.currentUser.profile_pic} id='comment-pic' />
+            <form onSubmit={this.handleSubmit}>
+              <input id='create-comment' value={this.state.body}
+                onChange={this.handleChange} placeholder='Write a Comment'></input>
+            </form>
           </div>
         </div>
       </div>
