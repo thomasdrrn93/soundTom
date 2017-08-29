@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
 import Upload from './upload';
 import { createNewTrack} from '../../actions/track_actions';
+import { withRouter } from 'react-router-dom';
 
 const mapStateToProps = (state) => {
   var keys = Object.keys(state.entities.tracks);
@@ -19,4 +20,4 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Upload);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Upload));

@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
 import TrackEdit from './track_edit';
 import { updateTrack } from '../../actions/track_actions';
+import { withRouter } from 'react-router-dom';
 
 const mapStateToProps = (state) => {
   return{
@@ -14,4 +15,4 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(TrackEdit);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(TrackEdit));

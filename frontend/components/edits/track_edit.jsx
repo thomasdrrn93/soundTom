@@ -16,6 +16,11 @@ class TrackEdit extends React.Component{
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
+  componentWillReceiveProps(nextProps){
+    const nextTrack = nextProps.track;
+    this.props.history.push(`/tracks/${nextTrack.id}`);
+  }
+
   handleSubmit(e){
     e.preventDefault();
     const formData = new FormData();

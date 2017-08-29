@@ -27,9 +27,11 @@ class UploadModal extends React.Component {
       this.closeModal = this.closeModal.bind(this);
     }
   openModal() {
+    this.props.clearErrors();
     this.setState({modalIsOpen: true});
   }
   closeModal() {
+    this.props.clearErrors();
    this.setState({modalIsOpen: false});
   }
 

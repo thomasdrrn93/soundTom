@@ -62,6 +62,7 @@ a{
    cursor: pointer;
    line-height: 20px;
    font-size: 14px;
+   text-align: center;
  }
 
  #guest {
@@ -96,7 +97,8 @@ a{
    font-size: 18px;
    min-width: 210px;
    height: 46px;
-   margin-top: 10px
+   margin-top: 10px;
+   text-align: center;
  }
 
  .top-section-center {
@@ -141,6 +143,7 @@ a{
    border-radius: 4px;
    cursor: pointer;
    color: white;
+   text-align: center;
  }
 
  .auth-title{
@@ -489,6 +492,7 @@ a{
   color: white;
   cursor: pointer;
   margin-bottom: 100px;
+  text-align: center;
 }
 .upload-title{
   margin: auto;

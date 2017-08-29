@@ -28,6 +28,7 @@ class SessionModal extends React.Component {
       this.closeModal = this.closeModal.bind(this);
     }
   openModal() {
+    this.props.clearErrors();
     this.setState({modalIsOpen: true});
   }
   closeModal() {
