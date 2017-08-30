@@ -95,8 +95,14 @@ class TrackShow extends React.Component{
           </div>
           <div id='post-comment-content'>
             <img id='track-show-artist' src={this.props.track.user_pic} />
+            <div id='comment-index-container'>
+              <div id='comment-count'>
+                <i className="fa fa-comment" aria-hidden="true"></i>
+                {this.props.track.comments.length} comments
+              </div>
+              <CommentsIndexContainer trackId={track.id} />
+            </div>
           </div>
-          <CommentsIndexContainer trackId={track.id} />
         </div>
       </div>
     );

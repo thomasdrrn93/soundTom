@@ -759,16 +759,54 @@ progress[value]::-webkit-progress-value {
 #individual-comment{
   display: flex;
   flex-direction: row;
+  margin-bottom: 10px;
 }
 #comments-index{
-  margin-left: 200px;
+  margin-top: 10px
 }
 #post-comment-content{
   display: flex;
   flex-direction: row;
+  margin-left: 20px;
+  margin-top: 40px;
+  width: 820px;
 }
 #track-show-artist{
   width: 120px;
   height: 120px;
   border-radius: 50%;
+}
+#comment-count{
+  border-bottom: 1px solid #999;
+  color: #999;
+  padding-bottom: 7px;
+  width: 100%
+}
+#comment-index-container{
+  width: 100%;
+  margin-left: 15px;
+}
+#comment-info{
+  display: flex;
+  flex-direction: column;
+  font-size: 12px;
+  margin-left: 10px;
+  justify-content: center;
+  width: 100%;
+}
+#commenter-name{
+  color: #999;
+}
+#comment-buttons{
+  float: right;
+}
+#comment-bottom{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+i{
+  margin-right: 5px;
+  cursor: pointer;
 }
