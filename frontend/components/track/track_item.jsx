@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import TrackEditModalContainer from '../modals/edit_track_modal_container';
+import FontAwesome from 'react-fontawesome';
 
 class TrackItem extends React.Component{
   constructor(props){
@@ -52,7 +53,8 @@ class TrackItem extends React.Component{
         <TrackEditModalContainer track={this.props.track} /> : <div></div>;
       const remove = this.props.currentUser.id ===
           this.props.track.uploader_id ? <div className='delete-button'
-            onClick={this.deleteTrack}>Delete</div>
+            onClick={this.deleteTrack}><i className="fa fa-trash"
+              aria-hidden="true"></i>Delete</div>
         : <div></div>;
     return(
       <li key={this.props.track.id} className='single-track'>
@@ -65,7 +67,8 @@ class TrackItem extends React.Component{
                   <div className= 'user-page-link'>{this.props.track.user}</div>
                 </Link>
                 <Link to={`/tracks/${this.props.track.id}`}>
-                  <div className= 'track-page-link'>{this.props.track.name}</div>
+                  <div className= 'track-page-link'>{this.props.track.name}
+                  </div>
                 </Link>
               </div>
             </div>

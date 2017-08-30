@@ -11,3 +11,11 @@ export const userTracks = (state, user) => {
     user.tracks.map(key => tracks[key])
   );
 };
+
+export const commentsArray = (state) =>{
+  const comments = state.entities.comments;
+  const arr =Object.keys(comments).map(key => comments[key]);
+  return(
+    arr.reverse()
+  );
+};

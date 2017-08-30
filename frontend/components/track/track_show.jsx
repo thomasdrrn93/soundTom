@@ -1,6 +1,7 @@
 import React from 'react';
 import NavBarContainer from '../nav_bar/nav_bar_container';
 import { Link } from 'react-router-dom';
+import CommentsIndexContainer from '../comments/comments_index_container';
 
 class TrackShow extends React.Component{
   constructor(props){
@@ -35,10 +36,11 @@ class TrackShow extends React.Component{
  }
 
  handleSubmit(e){
-   e.preventDefault;
-   const comment = {commenter_id: this.props.currentUser.id,
-     body: this.state.body, track_id: this.props.track.id};
-   this.props.createComment(this.state);
+   e.preventDefault();
+   const comment = {comment: {commenter_id: this.props.currentUser.id,
+     body: this.state.body, track_id: this.props.track.id}};
+   this.props.createComment(comment);
+  this.setState({body:''});
  }
 
   render() {
@@ -53,7 +55,7 @@ class TrackShow extends React.Component{
       <div className="circle-inner"></div>
     </div>;
     return(
-      (typeof track === 'undefined') ?
+      (typeof track.id === 'undefined') ?
       <header>
         <NavBarContainer />
       </header>:
@@ -87,9 +89,14 @@ class TrackShow extends React.Component{
             <img src={this.props.currentUser.profile_pic} id='comment-pic' />
             <form onSubmit={this.handleSubmit}>
               <input id='create-comment' value={this.state.body}
-                onChange={this.handleChange} placeholder='Write a Comment'></input>
+                onChange={this.handleChange} placeholder='Write a Comment'>
+              </input>
             </form>
           </div>
+          <div id='post-comment-content'>
+            <img id='track-show-artist' src={this.props.track.user_pic} />
+          </div>
+          <CommentsIndexContainer trackId={track.id} />
         </div>
       </div>
     );

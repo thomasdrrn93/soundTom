@@ -726,28 +726,49 @@ progress[value]::-webkit-progress-value {
   color: white;
 }
 #comment-form-container{
-  width: 1180px;
-  margin: auto;
+  width: 820px;
+  margin-left: 20px;
   margin-top: 20px;
   height: 40px;
   opacity: 1;
-  padding: 5px;
   border: 1px solid #e5e5e5;
   background: #f2f2f2;
   display:flex;
 }
 #create-comment{
-  margin-top: 8px;
-  margin-left: 40px;
-  width: 1128px;
+  margin-top: 7px;
+  margin-left: 10px;
+  width: 740px;
   background: white;
   line-height: 30px;
   padding: 0px 9px;
   outline: none;
   cursor: pointer;
   height: 27px;
+  border-radius: 6px
 }
 #comment-pic{
   height: 40px;
   width: 40px;
+}
+#commenter-pic{
+  width: 40px;
+  height: 40px;
+  border-radius: 50%
+}
+#individual-comment{
+  display: flex;
+  flex-direction: row;
+}
+#comments-index{
+  margin-left: 200px;
+}
+#post-comment-content{
+  display: flex;
+  flex-direction: row;
+}
+#track-show-artist{
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
 }

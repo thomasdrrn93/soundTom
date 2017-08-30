@@ -26,6 +26,7 @@
     "react-audio-player": "^0.6.2",
     "react-dom": "^15.6.1",
     "react-file-input": "^0.2.5",
+    "react-fontawesome": "^1.6.1",
     "react-modal": "^2.2.4",
     "react-redux": "^5.0.6",
     "react-router-dom": "^4.1.2",

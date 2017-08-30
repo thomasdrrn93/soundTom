@@ -11,7 +11,7 @@ const mapStateToProps = (state) => {
 };
 
 const mapDispatchToProps = dispatch => ({
-  fetchAllTracks: id => dispatch(fetchAllTracks())
+  fetchAllTracks: () => dispatch(fetchAllTracks())
 });
 
 export default connect(mapStateToProps,mapDispatchToProps)(Stream);

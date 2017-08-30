@@ -35,7 +35,7 @@ class PlayBar extends React.Component{
 
   playAudio(){
     this.audioTag.play();
-    setInterval(() => this.interval(), 2000);
+    setInterval(() => this.interval(), 200);
   }
 
   interval(){
@@ -107,8 +107,8 @@ class PlayBar extends React.Component{
 
     function change(e){
       const percent = e.offsetX / this.offsetWidth;
-      audio.currentTime = percent * audio.duration;
-      progress.value = percent / 100;
+      this.audioTag.currentTime = percent * this.audioTag.duration;
+      this.prog.value = percent / 100;
     }
   }
 

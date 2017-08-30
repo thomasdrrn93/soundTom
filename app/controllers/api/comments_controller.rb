@@ -2,11 +2,10 @@ class Api::CommentsController < ApplicationController
 
   def index
     @comments = Track.find(params[:track_id]).comments
-    render json: @comments
+    render 'api/comments/index'
   end
 
   def create
-    debugger
     @comment = Comment.new(comment_params)
     if @comment.save
       render 'api/comments/show'

@@ -41,7 +41,9 @@ class EditTrackModal extends React.Component{
   render(){
     return(
       <div>
-        <div className='edit-button' onClick={this.openModal}>Edit</div>
+        <div className='edit-button' onClick={this.openModal}>
+          <i className="fa fa-pencil" aria-hidden="true"></i>Edit
+        </div>
         <Modal
           isOpen={this.state.modalIsOpen}
           onRequestClose={this.closeModal}
