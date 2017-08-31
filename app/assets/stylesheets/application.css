@@ -881,3 +881,13 @@ i{
   top: 20px;
   z-index: 100000;
 }
+#nav-pic{
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  margin-right: 5px
+}
+#nav-username{
+  display: flex;
+  align-items: center
+}

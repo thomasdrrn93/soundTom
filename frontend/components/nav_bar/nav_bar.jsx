@@ -25,7 +25,10 @@ class NavBar extends React.Component{
         <div id='right-nav'>
           <UploadModalContainer />
           <a href= {`/#/users/${this.props.currentUser.id}`} className='nav-links'>
-            <div>{this.props.currentUser.username}</div>
+            <div id='nav-username'>
+              <img id='nav-pic' src={this.props.currentUser.profile_pic} />
+              {this.props.currentUser.username}
+            </div>
           </a>
           <button onClick={this.handleLogout} id='logout-nav'>Log Out</button>
         </div>

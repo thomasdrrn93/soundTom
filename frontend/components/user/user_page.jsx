@@ -1,6 +1,7 @@
 import React from 'react';
 import NavBarContainer from '../nav_bar/nav_bar_container';
 import TrackItemContainer from '../track/track_item_container';
+
 class UserPage extends React.Component{
   constructor(props){
     super(props);
