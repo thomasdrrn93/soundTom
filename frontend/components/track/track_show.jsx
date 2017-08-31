@@ -104,7 +104,7 @@ class TrackShow extends React.Component{
             <div id='comment-index-container'>
               <div id='comment-count'>
                 <i className="fa fa-comment" aria-hidden="true"></i>
-                {this.props.track.comments.length} comments
+                {this.props.comments} comments
               </div>
               <CommentsIndexContainer trackId={track.id} />
             </div>

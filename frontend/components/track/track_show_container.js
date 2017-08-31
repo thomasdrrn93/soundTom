@@ -4,14 +4,17 @@ import { fetchOneTrack } from '../../actions/track_actions';
 import { receiveCurrrentTrack } from '../../actions/play_bar_actions';
 import { withRouter} from 'react-router-dom';
 import { createComment } from '../../actions/comment_actions';
+import { commentsArray } from '../../reducers/selectors';
 
 const mapStateToProps = (state, ownProps) => {
-  const track = state.entities.tracks[ownProps.match.params.id];
+  const track = state.entities.tracks[ownProps.match.params.id] || {};
+  const comments = track.comments || [];
   return {
-    track: track || {},
+    track: track,
     currentSong: state.playing.currentSong,
     status: state.playing.status,
-    currentUser: state.session.currentUser || {}
+    currentUser: state.session.currentUser || {},
+    comments: commentsArray(state).length
   };
 };
 

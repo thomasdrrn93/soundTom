@@ -212,18 +212,14 @@ a{
  }
 
  #logout-nav{
-  display: inline-block;
   position: relative;
-  border-radius: 3px;
   color: #ccc;
   border: none;
   cursor: pointer;
   line-height: 20px;
   background: 0 0;
-  padding: 0 15px;
   font-size: 16px;
   height: 100%;
-  margin-left: 10px;
  }
  #logout-nav:hover{
    color: white;
