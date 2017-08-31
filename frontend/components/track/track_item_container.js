@@ -5,7 +5,7 @@ import { destroyTrack } from '../../actions/track_actions';
 
 const mapStateToProps = (state) => {
   return{
-    currentSong: state.playing.currentSong,
+    currentSong: state.playing.currentSong || [],
     status: state.playing.status,
     currentUser: state.session.currentUser
   };
@@ -15,7 +15,7 @@ const mapDispatchToProps = (dispatch) => {
   return {
     receiveCurrrentTrack: (track, status, queue) =>
       dispatch(receiveCurrrentTrack(track, status, queue)),
-    deleteTrack: (track) => dispatch(destroyTrack(track))  
+    deleteTrack: (track) => dispatch(destroyTrack(track))
   };
 };
 

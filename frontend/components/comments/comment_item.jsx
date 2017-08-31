@@ -8,7 +8,6 @@ class CommentItem extends React.Component{
   }
 
   handleDelete(){
-    debugger;
     this.props.destroyComment(this.props.comment);
   }
 

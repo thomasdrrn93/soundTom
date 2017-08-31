@@ -10,7 +10,7 @@ export const receiveCurrrentTrack = (track, status, queue) =>{
   };
 };
 
-export const recevieQueue = (queue) => {
+export const receiveQueue = (queue) => {
   return{
   type: RECEIVE_QUEUE,
   queue  

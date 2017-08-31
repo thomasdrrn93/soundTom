@@ -107,8 +107,8 @@ class PlayBar extends React.Component{
 
     function change(e){
       const percent = e.offsetX / this.offsetWidth;
-      this.audioTag.currentTime = percent * this.audioTag.duration;
-      this.prog.value = percent / 100;
+      audio.currentTime = percent * audio.duration;
+      progress.value = percent / 100;
     }
   }
 

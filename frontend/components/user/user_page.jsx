@@ -8,6 +8,13 @@ class UserPage extends React.Component{
     this.updateProfile = this.updateProfile.bind(this);
     this.updateCover = this.updateCover.bind(this);
   }
+
+  componentWillReceiveProps(nextProps) {
+    if (this.props.match.params.id !== nextProps.match.params.id) {
+      this.props.fetchOneUser({id: nextProps.match.params.id});
+    }
+  }
+
   componentDidMount(){
     this.props.fetchOneUser({id: this.props.match.params.id});
   }

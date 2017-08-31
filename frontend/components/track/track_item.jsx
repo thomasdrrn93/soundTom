@@ -1,19 +1,32 @@
 import React from 'react';
+import ReactDom from 'react-dom';
 import { Link } from 'react-router-dom';
 import TrackEditModalContainer from '../modals/edit_track_modal_container';
-import FontAwesome from 'react-fontawesome';
+import Wavesurfer from 'react-wavesurfer';
 
 class TrackItem extends React.Component{
   constructor(props){
     super(props);
+    const playing = this.props.currentSong.id === this.props.track.id &&
+    this.props.status === 'play' ? true : false;
+
+    this.state = {
+      playing: playing,
+      pos: 0
+    };
 
     this.handleAudio = this.handleAudio.bind(this);
     this.findQueue = this.findQueue.bind(this);
     this.deleteTrack = this.deleteTrack.bind(this);
+    this.handlePosChange = this.handlePosChange.bind(this);
   }
 
   deleteTrack(){
     this.props.deleteTrack(this.props.track);
+  }
+
+  handlePosChange(){
+    this.setState({pos: 0});
   }
 
   handleAudio(){
@@ -56,6 +69,20 @@ class TrackItem extends React.Component{
             onClick={this.deleteTrack}><i className="fa fa-trash"
               aria-hidden="true"></i>Delete</div>
         : <div></div>;
+        const wave = <Wavesurfer
+          audioFile={this.props.track.audio}
+          pos={this.state.pos}
+          onPosChange={this.handlePosChange}
+          playing={this.state.playing}
+          options={
+            {
+            waveColor: '#fff',
+            progressColor: '#ff5000',
+            height: 100,
+            barWidth: 2,
+            cursorColor: 'transparent'}
+          }
+          />;
     return(
       <li key={this.props.track.id} className='single-track'>
           <img className='track-item-pic' src={this.props.track.image}/>
@@ -72,6 +99,7 @@ class TrackItem extends React.Component{
                 </Link>
               </div>
             </div>
+
             <div className='buttons'>
               {edit}
               {remove}

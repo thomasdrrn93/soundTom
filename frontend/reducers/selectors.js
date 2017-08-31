@@ -19,3 +19,11 @@ export const commentsArray = (state) =>{
     arr.reverse()
   );
 };
+
+export const homeTracks = (state) => {
+  const tracks = state.entities.tracks;
+  const homePageTracks = Object.keys(tracks).map(key => tracks[key]);
+  return (
+    homePageTracks.slice(0, 13)
+  );
+};

@@ -17,6 +17,12 @@ class TrackShow extends React.Component{
     this.handleChange= this.handleChange.bind(this);
   }
 
+  componentWillReceiveProps(nextProps) {
+    if (this.props.match.params.id !== nextProps.match.params.id) {
+      this.props.fetchOneTrack({id: nextProps.match.params.id});
+    }
+  }
+
   componentDidMount() {
     this.props.fetchOneTrack({id: this.props.match.params.id});
  }
