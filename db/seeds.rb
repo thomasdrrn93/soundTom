@@ -6,16 +6,16 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 User.destroy_all
-user1 = User.create!({username: 'guest', password: 'password', profile_pic: File.open('app/assets/images/guestprof.jpg')})
-user2 = User.create!({username: 'Animal Collective', password: 'password', profile_pic: File.open('app/assets/images/animalprof.jpg')})
-user3 = User.create!({username: 'Kendrick Lamar', password: 'password', profile_pic: File.open('app/assets/images/kendrickprof.jpg')})
+user1 = User.create!({username: 'guest', password: 'password', profile_pic: 'https://s3.amazonaws.com/soundtom-dev/users/profile_pics/000/000/174/original/guestprof.jpg'})
+user2 = User.create!({username: 'Animal Collective', password: 'password', profile_pic: 'https://s3.amazonaws.com/soundtom-dev/users/profile_pics/000/000/175/original/animalprof.jpg'})
+user3 = User.create!({username: 'Kendrick Lamar', password: 'password', profile_pic: 'https://s3.amazonaws.com/soundtom-dev/users/profile_pics/000/000/176/original/kendrickprof.jpg'})
 user4 = User.create!({username: 'Panda Bear', password: 'password'})
-user5 = User.create!({username: 'LCD Soundsystem', password: 'password', profile_pic: File.open('app/assets/images/lcdprof.jpg')})
+user5 = User.create!({username: 'LCD Soundsystem', password: 'password', profile_pic: 'https://s3.amazonaws.com/soundtom-dev/users/profile_pics/000/000/178/original/lcdprof.jpg'})
 user6 = User.create!({username: 'Real Estate', password: 'password'})
-user7 = User.create!({username: 'Bob Dylan', password: 'password', profile_pic: File.open('app/assets/images/dylanprof.jpg')})
-user8 = User.create!({username: 'Chance the Rapper', password: 'password', profile_pic: File.open('app/assets/images/chanceprof.jpg')})
-user9 = User.create!({username: 'Tame Impala', password: 'password', profile_pic: File.open('app/assets/images/tameprof.jpg')})
-user10 = User.create!({username: 'Radiohead', password: 'password', profile_pic: File.open('app/assets/images/radioheadprof.jpg')})
+user7 = User.create!({username: 'Bob Dylan', password: 'password', profile_pic:'https://s3.amazonaws.com/soundtom-dev/users/profile_pics/000/000/180/original/dylanprof.jpg'})
+user8 = User.create!({username: 'Chance the Rapper', password: 'password', profile_pic: 'https://s3.amazonaws.com/soundtom-dev/users/profile_pics/000/000/181/original/chanceprof.jpg'})
+user9 = User.create!({username: 'Tame Impala', password: 'password', profile_pic: 'https://s3.amazonaws.com/soundtom-dev/users/profile_pics/000/000/182/original/tameprof.jpg'})
+user10 = User.create!({username: 'Radiohead', password: 'password', profile_pic: 'https://s3.amazonaws.com/soundtom-dev/users/profile_pics/000/000/183/original/radioheadprof.jpg'})
 
 Track.destroy_all
 Track.create!({name: 'My Girls', genre: 'rock', uploader_id: user2.id, image: File.open('app/assets/images/mpp.jpg'),
