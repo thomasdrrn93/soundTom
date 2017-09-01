@@ -900,6 +900,7 @@ i{
   cursor: pointer;
   margin-bottom: 100px;
   text-align: center;
+}
 
 #center-nav{
   display: flex;
@@ -921,5 +922,4 @@ i{
   color: #999;
   font-size: 12px;
   margin-left: 10px;
-}
 }
