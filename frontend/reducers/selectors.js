@@ -27,3 +27,10 @@ export const homeTracks = (state) => {
     homePageTracks.slice(0, 12)
   );
 };
+
+export const searchTracks = (state) => {
+  const tracks = state.entities.search;
+  return(
+    Object.keys(tracks).map(key => tracks[key])
+  );
+};

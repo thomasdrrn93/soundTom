@@ -32,6 +32,14 @@ export const updateTrack = (track, id) => {
   });
 };
 
+export const getTrackWaves = (track) => {
+  return $.ajax({
+    method: 'PATCH',
+    url: `/api/tracks/${track.track.id}`,
+    data: track
+  });
+};
+
 export const destroyTrack = (track) => {
   return $.ajax({
     method: "DELETE",

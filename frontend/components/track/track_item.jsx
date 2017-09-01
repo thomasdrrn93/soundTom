@@ -3,13 +3,15 @@ import ReactDom from 'react-dom';
 import { Link } from 'react-router-dom';
 import TrackEditModalContainer from '../modals/edit_track_modal_container';
 import Wavesurfer from 'react-wavesurfer';
+import { withRouter } from 'react-router-dom';
+import createPeak from '../../util/peaks_util';
+
 
 class TrackItem extends React.Component{
   constructor(props){
     super(props);
     const playing = this.props.currentSong.id === this.props.track.id &&
     this.props.status === 'play' ? true : false;
-
     this.state = {
       playing: playing,
       pos: 0
@@ -21,13 +23,22 @@ class TrackItem extends React.Component{
     this.handlePosChange = this.handlePosChange.bind(this);
   }
 
+  componentWillReceiveProps(nextProps){
+    const playing = nextProps.currentSong.id === nextProps.track.id &&
+    nextProps.status === 'play' ? true : false;
+    this.setState({playing: playing});
+  }
+
   deleteTrack(){
     this.props.deleteTrack(this.props.track);
   }
 
-  handlePosChange(){
-    this.setState({pos: 0});
-  }
+  handlePosChange(e) {
+    debugger;
+   this.setState({
+       pos: e.originalArgs[0]
+     });
+   }
 
   handleAudio(){
     if (this.props.currentSong === this.props.track){
@@ -69,48 +80,77 @@ class TrackItem extends React.Component{
             onClick={this.deleteTrack}><i className="fa fa-trash"
               aria-hidden="true"></i>Delete</div>
         : <div></div>;
-        const wave = <Wavesurfer
+        const wave = this.props.track.waves.length === 0 ? <Wavesurfer
           audioFile={this.props.track.audio}
           pos={this.state.pos}
           onPosChange={this.handlePosChange}
           playing={this.state.playing}
+          onReady={ (elm) => {this.props
+            .updateTrack({track : {id: this.props.track.id,
+              waves: elm.wavesurfer.backend.mergedPeaks.toString()}});}}
+
           options={
             {
-            waveColor: '#fff',
-            progressColor: '#ff5000',
+            waveColor: '#f999',
+            progressColor: '#f50',
             height: 100,
             barWidth: 2,
             cursorColor: 'transparent'}
           }
-          />;
+          /> : <Wavesurfer
+            audioFile={this.props.track.audio}
+            pos={this.state.pos}
+            onPosChange={this.handlePosChange}
+            playing={this.state.playing}
+            audioPeaks={this.props.track.peaks}
+            options={
+              {
+              waveColor: '#999',
+              progressColor: '#f50',
+              height: 100,
+              barWidth: 2,
+              fillParent: true,
+              cursorColor: 'transparent'}
+            } />;
+    const title = this.props.location.pathname === '/stream' ?
+    <div id= 'track-item-title'>
+      <img src={this.props.track.user_pic} className='nav-pic' />
+      <div id='title-text'>
+        {this.props.track.user} posted a track {this.props.track.created} ago
+      </div>
+    </div> : <div></div>;
     return(
-      <li key={this.props.track.id} className='single-track'>
-          <img className='track-item-pic' src={this.props.track.image}/>
-          <div className= 'track-item-info-container'>
-            <div className='track-item-info'>
-              {playB}
-              <div className='track-user-song'>
-                <Link to={`/users/${this.props.track.uploader_id}`}>
-                  <div className= 'user-page-link'>{this.props.track.user}</div>
-                </Link>
-                <Link to={`/tracks/${this.props.track.id}`}>
-                  <div className= 'track-page-link'>{this.props.track.name}
-                  </div>
-                </Link>
+      <div>
+        {title}
+        <li key={this.props.track.id} className='single-track'>
+            <img className='track-item-pic' src={this.props.track.image}/>
+            <div className= 'track-item-info-container'>
+              <div className='track-item-info'>
+                {playB}
+                <div className='track-user-song'>
+                  <Link to={`/users/${this.props.track.uploader_id}`}>
+                    <div className= 'user-page-link'>{this.props.track.user}
+                    </div>
+                  </Link>
+                  <Link to={`/tracks/${this.props.track.id}`}>
+                    <div className= 'track-page-link'>{this.props.track.name}
+                    </div>
+                  </Link>
+                </div>
+              </div>
+              {wave}
+              <div className='buttons'>
+                {edit}
+                {remove}
               </div>
             </div>
-
-            <div className='buttons'>
-              {edit}
-              {remove}
-            </div>
-          </div>
-      </li>
+        </li>
+      </div>
     );
   }
 }
 
-export default TrackItem;
+export default withRouter(TrackItem);
 
 
 // <div className='track-genre'>

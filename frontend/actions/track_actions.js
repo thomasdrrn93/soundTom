@@ -44,6 +44,7 @@ export const createNewTrack = (track) => (dispatch) =>{
 };
 
 export const updateTrack = (track, id) => (dispatch) =>{
+  debugger;
   return APIUtil.updateTrack(track, id)
     .then(track => dispatch(receiveSingleTrack(track)),
   err => (dispatch(receiveErrors(err.responseJSON))));
@@ -57,4 +58,9 @@ export const fetchOneTrack = (track) => (dispatch) =>{
 export const fetchAllTracks = () => (dispatch) =>{
   return APIUtil.fetchAllTracks()
     .then(tracks => dispatch(receiveAllTracks(tracks)));
+};
+
+export const getTrackWaves = (track) => (dispatch) =>{
+  return APIUtil.getTrackWaves(track)
+    .then(track => dispatch(receiveSingleTrack(track)));
 };

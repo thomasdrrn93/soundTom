@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170829184146) do
+ActiveRecord::Schema.define(version: 20170901151608) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,6 +23,12 @@ ActiveRecord::Schema.define(version: 20170829184146) do
     t.datetime "updated_at",   null: false
     t.index ["commenter_id"], name: "index_comments_on_commenter_id", using: :btree
     t.index ["track_id"], name: "index_comments_on_track_id", using: :btree
+  end
+
+  create_table "peaks", force: :cascade do |t|
+    t.integer "track_id", null: false
+    t.float   "peak",     null: false
+    t.index ["track_id"], name: "index_peaks_on_track_id", using: :btree
   end
 
   create_table "tracks", force: :cascade do |t|
@@ -39,6 +45,7 @@ ActiveRecord::Schema.define(version: 20170829184146) do
     t.string   "audio_content_type"
     t.integer  "audio_file_size"
     t.datetime "audio_updated_at"
+    t.string   "waves"
     t.index ["uploader_id"], name: "index_tracks_on_uploader_id", using: :btree
   end
 

@@ -18,6 +18,7 @@ class Api::TracksController < ApplicationController
   end
 
   def update
+    debugger
     @track = Track.find(params[:id])
     if @track.update(track_params)
       render 'api/tracks/show'
@@ -32,10 +33,18 @@ class Api::TracksController < ApplicationController
     render json: @track
   end
 
+  def search
+    @tracks = Track.where(
+    'lower(name) LIKE ? OR lower(user) LIKE ?',
+      "%#{params[:query].downcase}%",
+        "%#{params[:query].downcase}%")
+    render 'api/tracks/index'
+  end
+
   private
 
   def track_params
     params.require(:track)
-      .permit(:name, :genre, :audio, :uploader_id, :image, :uploader_id)
+      .permit(:name, :genre, :audio, :uploader_id, :image, :uploader_id, :waves)
   end
 end
