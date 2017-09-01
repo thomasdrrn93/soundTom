@@ -22,11 +22,16 @@ class NavBar extends React.Component{
             <div id='nav-home'>Home</div>
           </a>
         </div>
+        <div id='center-nav'>
+          <form>
+            <input type='text' placeholder='Search' id='nav-search' />
+          </form>
+        </div>
         <div id='right-nav'>
           <UploadModalContainer />
           <a href= {`/#/users/${this.props.currentUser.id}`} className='nav-links'>
             <div id='nav-username'>
-              <img id='nav-pic' src={this.props.currentUser.profile_pic} />
+              <img className='nav-pic' src={this.props.currentUser.profile_pic} />
               {this.props.currentUser.username}
             </div>
           </a>

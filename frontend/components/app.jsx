@@ -7,6 +7,7 @@ import UploadContainer from './upload/upload_container';
 import TrackShowContainer from './track/track_show_container';
 import PlayBarContainer from './play_bar/play_bar_container';
 import UserPageContainer from './user/user_page_container';
+import SearchContainer from './search/search_container';
 
 const App = () => (
   <div>
@@ -15,6 +16,7 @@ const App = () => (
       <ProtectedRoute path='/upload' exact component= {UploadContainer} />
       <ProtectedRoute path='/tracks/:id' exact component= {TrackShowContainer} />
       <ProtectedRoute path='/users/:id' exact component= {UserPageContainer} />
+      <ProtectedRoute path='/search/string' exact component= {SearchContainer} />
       <AuthRoute path='/' exact component= {HomeContainer} />
     </Switch>
     <footer>

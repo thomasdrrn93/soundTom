@@ -7,6 +7,11 @@ class Track < ApplicationRecord
   has_attached_file :audio
   validates_attachment_content_type :audio, content_type: /\Aaudio\/.*\z/
 
+  has_many :peaks,
+    primary_key: :id,
+    foreign_key: :track_id,
+    class_name: :Peak
+
   belongs_to :user,
     primary_key: :id,
     foreign_key: :uploader_id,

@@ -877,7 +877,7 @@ i{
   top: 20px;
   z-index: 100000;
 }
-#nav-pic{
+.nav-pic{
   width: 26px;
   height: 26px;
   border-radius: 50%;
@@ -886,4 +886,25 @@ i{
 #nav-username{
   display: flex;
   align-items: center
+}
+#center-nav{
+  display: flex;
+  align-items: center;
+}
+#nav-search{
+  color: #666;
+  background: #e5e5e5;
+  padding: 5px 7px;
+  border-radius: 4px;
+  width: 500px
+}
+#track-item-title{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+#title-text{
+  color: #999;
+  font-size: 12px;
+  margin-left: 10px;
 }

@@ -84,7 +84,7 @@ class TrackShow extends React.Component{
               </div>
             </div>
             <div className='track-center-profile'>
-              <div className='track-show-upload'>2 Days</div>
+              <div className='track-show-upload'>{track.created}</div>
               <div className='track-show-genre'>{track.genre}</div>
             </div>
             <div className='track-right-profile'>

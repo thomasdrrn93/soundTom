@@ -7,6 +7,7 @@ Rails.application.routes.draw do
     end
     resources :comments, only: [:update, :destroy]
     resource :session, only: [:show, :create, :destroy]
+    resources :peaks, only: [:create]
   end
   root "static_pages#root"
 
