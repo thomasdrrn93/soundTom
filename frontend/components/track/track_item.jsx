@@ -14,7 +14,8 @@ class TrackItem extends React.Component{
     this.props.status === 'play' ? true : false;
     this.state = {
       playing: playing,
-      pos: 0
+      pos: 0,
+      volume: 0
     };
 
     this.handleAudio = this.handleAudio.bind(this);
@@ -101,7 +102,8 @@ class TrackItem extends React.Component{
             pos={this.state.pos}
             onPosChange={this.handlePosChange}
             playing={this.state.playing}
-            audioPeaks={this.props.track.peaks}
+            audioPeaks={this.props.track.waves}
+            volume={this.state.volume}
             options={
               {
               waveColor: '#999',

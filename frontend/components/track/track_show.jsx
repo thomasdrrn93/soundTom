@@ -12,7 +12,8 @@ class TrackShow extends React.Component{
     this.state = {
       body: '',
       pos: 0,
-      playing: playing
+      playing: playing,
+      volume: 0
 
     };
 
@@ -64,6 +65,7 @@ class TrackShow extends React.Component{
       pos={this.state.pos}
       onPosChange={this.handlePosChange}
       playing={this.state.playing}
+      volume={this.state.volume}
       onReady={ (elm) => {this.props
         .updateTrack({track : {id: this.props.track.id,
           waves: elm.wavesurfer.backend.mergedPeaks.toString()}});}}
@@ -81,7 +83,8 @@ class TrackShow extends React.Component{
         pos={this.state.pos}
         onPosChange={this.handlePosChange}
         playing={this.state.playing}
-        audioPeaks={this.props.track.peaks}
+        audioPeaks={this.props.track.waves}
+        volume={this.state.volume}
         options={
           {
           waveColor: '#999',
