@@ -1,5 +1,5 @@
 class Track < ApplicationRecord
-  validates :uploader_id, :name, :audio, presence: true
+  validates :uploader_id, :name, :user, :audio, presence: true
 
   has_attached_file :image, default_url: "no_cover.jpg"
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\z/

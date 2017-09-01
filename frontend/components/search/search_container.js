@@ -1,16 +1,13 @@
 import { connect } from 'react-redux';
 import Search from './search';
+import { fetchSearch } from '../../actions/search_actions';
+import { searchTracks } from '../../reducers/selectors';
 
 const mapStateToProps = (state) =>{
   return{
-
+    tracks: searchTracks(state)
   };
 };
 
-const mapDispatchToProps = (dispatch) =>{
-  return{
 
-  };
-};
-
-export default (mapStateToProps, mapDispatchToProps)(Search);
+export default connect(mapStateToProps)(Search);

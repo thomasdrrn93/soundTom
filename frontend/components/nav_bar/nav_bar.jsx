@@ -6,12 +6,35 @@ class NavBar extends React.Component{
   constructor(props){
     super(props);
 
+    this.state = {
+      search: ''
+    };
+
     this.handleLogout = this.handleLogout.bind(this);
+    this.handleSearchSubmit = this.handleSearchSubmit.bind(this);
+    this.handleChange = this.handleChange.bind(this);
+  }
+
+  handleChange(e){
+    return (this.setState({
+      search: e.currentTarget.value
+    }));
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.search) {
+      this.props.history.push(`/search/${this.state.search}`);
+    }
   }
 
   handleLogout(e){
-    e.preventDefault;
+    e.preventDefault();
     this.props.logout();
+  }
+
+  handleSearchSubmit(e){
+    e.preventDefault();
+    this.props.fetchSearch(this.state.search);
   }
 
   render(){
@@ -23,15 +46,18 @@ class NavBar extends React.Component{
           </a>
         </div>
         <div id='center-nav'>
-          <form>
-            <input type='text' placeholder='Search' id='nav-search' />
+          <form onSubmit={this.handleSearchSubmit}>
+            <input type='text' placeholder='Search' id='nav-search'
+              onChange={this.handleChange} />
           </form>
         </div>
         <div id='right-nav'>
           <UploadModalContainer />
-          <a href= {`/#/users/${this.props.currentUser.id}`} className='nav-links'>
+          <a href= {`/#/users/${this.props.currentUser.id}`}
+            className='nav-links'>
             <div id='nav-username'>
-              <img className='nav-pic' src={this.props.currentUser.profile_pic} />
+              <img className='nav-pic'
+                src={this.props.currentUser.profile_pic} />
               {this.props.currentUser.username}
             </div>
           </a>

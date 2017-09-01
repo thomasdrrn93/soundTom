@@ -32,6 +32,14 @@ class Api::TracksController < ApplicationController
     render json: @track
   end
 
+  def search
+    @tracks = Track.where(
+    'lower(name) LIKE ? OR lower(user) LIKE ?',
+      "%#{params[:query].downcase}%",
+        "%#{params[:query].downcase}%")
+    render 'api/tracks/index'
+  end
+
   private
 
   def track_params

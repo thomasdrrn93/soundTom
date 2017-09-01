@@ -16,7 +16,7 @@ const App = () => (
       <ProtectedRoute path='/upload' exact component= {UploadContainer} />
       <ProtectedRoute path='/tracks/:id' exact component= {TrackShowContainer} />
       <ProtectedRoute path='/users/:id' exact component= {UserPageContainer} />
-      <ProtectedRoute path='/search/string' exact component= {SearchContainer} />
+      <ProtectedRoute path='/search/:query' exact component= {SearchContainer} />
       <AuthRoute path='/' exact component= {HomeContainer} />
     </Switch>
     <footer>

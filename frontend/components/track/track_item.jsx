@@ -11,10 +11,9 @@ class TrackItem extends React.Component{
     super(props);
     const playing = this.props.currentSong.id === this.props.track.id &&
     this.props.status === 'play' ? true : false;
-
     this.state = {
       playing: playing,
-      pos: 0
+      pos: 5
     };
 
     this.handleAudio = this.handleAudio.bind(this);
@@ -23,13 +22,22 @@ class TrackItem extends React.Component{
     this.handlePosChange = this.handlePosChange.bind(this);
   }
 
+  componentWillReceiveProps(nextProps){
+    const playing = nextProps.currentSong.id === nextProps.track.id &&
+    nextProps.status === 'play' ? true : false;
+    this.setState({playing: playing});
+  }
+
   deleteTrack(){
     this.props.deleteTrack(this.props.track);
   }
 
-  handlePosChange(){
-    this.setState({pos: 0});
-  }
+  handlePosChange(e) {
+    debugger;
+   this.setState({
+       pos: e.originalArgs[0]
+     });
+   }
 
   handleAudio(){
     if (this.props.currentSong === this.props.track){
@@ -83,8 +91,8 @@ class TrackItem extends React.Component{
           }}
           options={
             {
-            waveColor: '#f50',
-            progressColor: '#ff5000',
+            waveColor: '#f999',
+            progressColor: '#f50',
             height: 100,
             barWidth: 2,
             cursorColor: 'transparent'}

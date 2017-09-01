@@ -1,7 +1,7 @@
 import { RECEIVE_SINGLE_TRACK, RECEIVE_ALL_TRACKS,
   RECEIVE_ERRORS, DELETE_TRACK} from '../actions/track_actions';
 import { RECEIVE_SINGLE_USER } from '../actions/user_actions';
-import { RECEIVE_SINGLE_COMMENT, DELETE_COMMENT }from
+import { RECEIVE_SINGLE_COMMENT, DELETE_COMMENT } from
   '../actions/comment_actions';
 
 
@@ -29,7 +29,7 @@ const tracksReducer = (state = {}, action) =>{
       if (track.comments.includes(comment.id) === false){
         track.comments.push(comment.id);
       }
-      return newState;    
+      return newState;
     default:
       return state;
   }
