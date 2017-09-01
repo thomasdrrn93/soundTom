@@ -139,7 +139,6 @@ class TrackItem extends React.Component{
                   </Link>
                 </div>
               </div>
-              {wave}
               <div className='buttons'>
                 {edit}
                 {remove}

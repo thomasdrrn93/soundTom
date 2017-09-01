@@ -125,7 +125,6 @@ class TrackShow extends React.Component{
               </div>
               <div>
                 <div className='track-show-name'>{track.name}</div>
-                {wave}
               </div>
             </div>
             <div className='track-center-profile'>
