@@ -21,11 +21,6 @@ class NavBar extends React.Component{
     }));
   }
 
-  componentWillReceiveProps(nextProps) {
-    if (nextProps.search) {
-      this.props.history.push(`/search/${this.state.search}`);
-    }
-  }
 
   handleLogout(e){
     e.preventDefault();
@@ -47,7 +42,7 @@ class NavBar extends React.Component{
         </div>
         <div id='center-nav'>
           <form onSubmit={this.handleSearchSubmit}>
-            <input disabled type='text' placeholder='Search' id='nav-search'
+            <input type='text' placeholder='Search' id='nav-search'
               onChange={this.handleChange} />
           </form>
         </div>
