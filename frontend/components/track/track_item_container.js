@@ -4,7 +4,6 @@ import { receiveCurrrentTrack } from '../../actions/play_bar_actions';
 import { destroyTrack, getTrackWaves } from '../../actions/track_actions';
 
 const mapStateToProps = (state) => {
-  debugger;
   return{
     currentSong: state.playing.currentSong || [],
     status: state.playing.status,

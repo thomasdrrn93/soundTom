@@ -44,7 +44,6 @@ export const createNewTrack = (track) => (dispatch) =>{
 };
 
 export const updateTrack = (track, id) => (dispatch) =>{
-  debugger;
   return APIUtil.updateTrack(track, id)
     .then(track => dispatch(receiveSingleTrack(track)),
   err => (dispatch(receiveErrors(err.responseJSON))));

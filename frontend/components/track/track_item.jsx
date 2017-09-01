@@ -34,7 +34,6 @@ class TrackItem extends React.Component{
   }
 
   handlePosChange(e) {
-    debugger;
    this.setState({
        pos: e.originalArgs[0]
      });
