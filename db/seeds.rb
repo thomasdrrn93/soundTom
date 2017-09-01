@@ -6,16 +6,16 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 User.destroy_all
-user1 = User.create!({username: 'guest', password: 'password'})
-user2 = User.create!({username: 'Animal Collective', password: 'password'})
-user3 = User.create!({username: 'Kendrick Lamar', password: 'password'})
+user1 = User.create!({username: 'guest', password: 'password', profile_pic: File.open('app/assets/images/guestprof.jpg')})
+user2 = User.create!({username: 'Animal Collective', password: 'password', profile_pic: File.open('app/assets/images/animalprof.jpg')})
+user3 = User.create!({username: 'Kendrick Lamar', password: 'password', profile_pic: File.open('app/assets/images/kendrickprof.jpg')})
 user4 = User.create!({username: 'Panda Bear', password: 'password'})
-user5 = User.create!({username: 'LCD Soundsystem', password: 'password'})
+user5 = User.create!({username: 'LCD Soundsystem', password: 'password', profile_pic: File.open('app/assets/images/lcdprof.jpg')})
 user6 = User.create!({username: 'Real Estate', password: 'password'})
-user7 = User.create!({username: 'Bob Dylan', password: 'password'})
-user8 = User.create!({username: 'Chance the Rapper', password: 'password'})
-user9 = User.create!({username: 'Tame Impala', password: 'password'})
-user10 = User.create!({username: 'Radiohead', password: 'password'})
+user7 = User.create!({username: 'Bob Dylan', password: 'password', profile_pic: File.open('app/assets/images/dylanprof.jpg')})
+user8 = User.create!({username: 'Chance the Rapper', password: 'password', profile_pic: File.open('app/assets/images/chanceprof.jpg')})
+user9 = User.create!({username: 'Tame Impala', password: 'password', profile_pic: File.open('app/assets/images/tameprof.jpg')})
+user10 = User.create!({username: 'Radiohead', password: 'password', profile_pic: File.open('app/assets/images/radioheadprof.jpg')})
 
 Track.destroy_all
 Track.create!({name: 'My Girls', genre: 'rock', uploader_id: user2.id, image: File.open('app/assets/images/mpp.jpg'),

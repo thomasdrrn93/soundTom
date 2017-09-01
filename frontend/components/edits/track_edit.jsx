@@ -9,7 +9,8 @@ class TrackEdit extends React.Component{
       genre: this.props.track.genre,
       image: this.props.track.image,
       audio: this.props.track.audio,
-      uploader_id: this.props.track.uploader_id
+      uploader_id: this.props.track.uploader_id,
+      loading: false
     };
     this.updateText = this.updateText.bind(this);
     this.updateImage = this.updateImage.bind(this);
@@ -23,13 +24,16 @@ class TrackEdit extends React.Component{
 
   handleSubmit(e){
     e.preventDefault();
+    this.setState({loading: true});
     const formData = new FormData();
     formData.append("track[name]", this.state.name);
     formData.append("track[audio]", this.state.audio);
     formData.append("track[image]", this.state.image);
     formData.append("track[uploader_id]", this.state.uploader_id);
     formData.append("track[genre]", this.state.genre);
-    this.props.updateTrack(formData, this.props.track.id);
+    this.props.updateTrack(formData, this.props.track.id)
+    .then(({ track }) => this.props.history.push(`/tracks/${track.id}`))
+    .fail(() => this.setState({loading: false}));
   }
 
   updateText(type){
@@ -56,6 +60,9 @@ class TrackEdit extends React.Component{
   }
 
   render(){
+    const button = this.state.loading === false ? <button
+       className= 'upload-button'>Upload your track</button> : <button
+          className= 'loading-button' disabled>Loading</button>;
     return (
       <div className= 'upload-div'>
         <form onSubmit={this.handleSubmit} className='upload-form'>
@@ -71,7 +78,7 @@ class TrackEdit extends React.Component{
           <input className= 'upload-input' type='text'
             onChange={this.updateText('genre')}
             placeholder={this.state.genre} value={this.state.genre}/>
-          <button className= 'upload-button'>Update your track</button>
+          {button}
           {this.renderErrors()}
         </form>
       </div>

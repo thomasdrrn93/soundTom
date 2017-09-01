@@ -887,3 +887,13 @@ i{
   display: flex;
   align-items: center
 }
+.loading-button{
+  background: #f50;
+  border: solid 1px #f50;
+  border-radius: 5px;
+  font-size: 18px;
+  color: white;
+  cursor: pointer;
+  margin-bottom: 100px;
+  text-align: center;
+}
