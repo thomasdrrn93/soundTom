@@ -47,7 +47,7 @@ class NavBar extends React.Component{
         </div>
         <div id='center-nav'>
           <form onSubmit={this.handleSearchSubmit}>
-            <input type='text' placeholder='Search' id='nav-search'
+            <input disabled type='text' placeholder='Search' id='nav-search'
               onChange={this.handleChange} />
           </form>
         </div>
