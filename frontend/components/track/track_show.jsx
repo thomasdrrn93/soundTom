@@ -2,13 +2,18 @@ import React from 'react';
 import NavBarContainer from '../nav_bar/nav_bar_container';
 import { Link } from 'react-router-dom';
 import CommentsIndexContainer from '../comments/comments_index_container';
+import Wavesurfer from 'react-wavesurfer';
 
 class TrackShow extends React.Component{
   constructor(props){
     super(props);
-
+    const playing = this.props.currentSong.id === this.props.track.id &&
+    this.props.status === 'play' ? true : false;
     this.state = {
-      body: ''
+      body: '',
+      pos: 0,
+      playing: playing
+
     };
 
     this.handlePlay = this.handlePlay.bind(this);
@@ -21,6 +26,9 @@ class TrackShow extends React.Component{
     if (this.props.match.params.id !== nextProps.match.params.id) {
       this.props.fetchOneTrack({id: nextProps.match.params.id});
     }
+    const playing = nextProps.currentSong.id === nextProps.track.id &&
+    nextProps.status === 'play' ? true : false;
+    this.setState({playing: playing});
   }
 
   componentDidMount() {
@@ -50,6 +58,39 @@ class TrackShow extends React.Component{
  }
 
   render() {
+    const waves = this.props.track.waves || [];
+    const wave = waves.length === 0 ? <Wavesurfer
+      audioFile={this.props.track.audio}
+      pos={this.state.pos}
+      onPosChange={this.handlePosChange}
+      playing={this.state.playing}
+      onReady={ (elm) => {this.props
+        .updateTrack({track : {id: this.props.track.id,
+          waves: elm.wavesurfer.backend.mergedPeaks.toString()}});}}
+
+      options={
+        {
+        waveColor: '#999',
+        progressColor: '#f50',
+        height: 100,
+        barWidth: 2,
+        cursorColor: 'transparent'}
+      }
+      /> : <Wavesurfer
+        audioFile={this.props.track.audio}
+        pos={this.state.pos}
+        onPosChange={this.handlePosChange}
+        playing={this.state.playing}
+        audioPeaks={this.props.track.peaks}
+        options={
+          {
+          waveColor: '#999',
+          progressColor: '#f50',
+          height: 100,
+          barWidth: 2,
+          fillParent: true,
+          cursorColor: 'transparent'}
+        } />;
     const track = this.props.track;
     const playB = this.props.currentSong && track &&
     this.props.currentSong.id === track.id &&
@@ -81,10 +122,11 @@ class TrackShow extends React.Component{
               </div>
               <div>
                 <div className='track-show-name'>{track.name}</div>
+                {wave}
               </div>
             </div>
             <div className='track-center-profile'>
-              <div className='track-show-upload'>{track.created}</div>
+              <div className='track-show-upload'>{track.created} ago</div>
               <div className='track-show-genre'>{track.genre}</div>
             </div>
             <div className='track-right-profile'>

@@ -18,6 +18,7 @@ class Api::TracksController < ApplicationController
   end
 
   def update
+    debugger
     @track = Track.find(params[:id])
     if @track.update(track_params)
       render 'api/tracks/show'
@@ -44,6 +45,6 @@ class Api::TracksController < ApplicationController
 
   def track_params
     params.require(:track)
-      .permit(:name, :genre, :audio, :uploader_id, :image, :uploader_id)
+      .permit(:name, :genre, :audio, :uploader_id, :image, :uploader_id, :waves)
   end
 end

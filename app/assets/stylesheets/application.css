@@ -238,6 +238,7 @@ a{
   width: 1200px;
   margin: auto;
   flex-direction: column;
+  padding-bottom: 60px;
 }
 
 .track-item-pic{
@@ -316,7 +317,7 @@ a{
   margin-top: 45px;
   width: 100%;
   height: 380px;
-  background: #887e7e;
+  background: #1e2b1d;
   display: flex;
   flex-direction: row;
   position: relative;
@@ -330,9 +331,11 @@ a{
 }
 
 .track-center-profile{
-  width:20%;
-  margin-left: 180px;
-  margin-top: 30px
+  width: 20%;
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end
 }
 .track-right-profile{
   width: 30%;

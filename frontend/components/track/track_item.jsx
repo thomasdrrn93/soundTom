@@ -6,6 +6,7 @@ import Wavesurfer from 'react-wavesurfer';
 import { withRouter } from 'react-router-dom';
 import createPeak from '../../util/peaks_util';
 
+
 class TrackItem extends React.Component{
   constructor(props){
     super(props);
@@ -13,7 +14,7 @@ class TrackItem extends React.Component{
     this.props.status === 'play' ? true : false;
     this.state = {
       playing: playing,
-      pos: 5
+      pos: 0
     };
 
     this.handleAudio = this.handleAudio.bind(this);
@@ -79,16 +80,15 @@ class TrackItem extends React.Component{
             onClick={this.deleteTrack}><i className="fa fa-trash"
               aria-hidden="true"></i>Delete</div>
         : <div></div>;
-        const wave = this.props.track.peaks.length === 0 ? <Wavesurfer
+        const wave = this.props.track.waves.length === 0 ? <Wavesurfer
           audioFile={this.props.track.audio}
           pos={this.state.pos}
           onPosChange={this.handlePosChange}
           playing={this.state.playing}
-          onReady={ (elm) => {
-            elm.wavesurfer.backend.mergedPeaks.forEach( (peak) => {
-              createPeak({track_id: this.props.track.id, peak: peak});
-            });
-          }}
+          onReady={ (elm) => {this.props
+            .updateTrack({track : {id: this.props.track.id,
+              waves: elm.wavesurfer.backend.mergedPeaks.toString()}});}}
+
           options={
             {
             waveColor: '#f999',
