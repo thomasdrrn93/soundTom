@@ -94,7 +94,6 @@ class Upload extends React.Component{
           <input className= 'upload-input' type='text'
              onChange={this.updateText('genre')} placeholder= 'Genre name' value={this.state.genre}/>
            {button}
-          {this.renderErrors()}
         </form>
       </div>
     );
