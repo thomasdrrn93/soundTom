@@ -137,6 +137,7 @@ class TrackItem extends React.Component{
                     <div className= 'track-page-link'>{this.props.track.name}
                     </div>
                   </Link>
+                  {wave}
                 </div>
               </div>
               <div className='buttons'>
