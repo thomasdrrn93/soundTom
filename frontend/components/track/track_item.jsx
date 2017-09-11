@@ -15,7 +15,7 @@ class TrackItem extends React.Component{
     this.state = {
       playing: playing,
       pos: 0,
-      volume: 0
+      volume:0
     };
 
     this.handleAudio = this.handleAudio.bind(this);
@@ -24,11 +24,11 @@ class TrackItem extends React.Component{
     this.handlePosChange = this.handlePosChange.bind(this);
   }
 
-  componentWillReceiveProps(nextProps){
-    const playing = nextProps.currentSong.id === nextProps.track.id &&
-    nextProps.status === 'play' ? true : false;
-    this.setState({playing: playing});
-  }
+  // componentWillReceiveProps(nextProps){
+  //   const playing = nextProps.currentSong.id === nextProps.track.id &&
+  //   nextProps.status === 'play' ? true : false;
+  //   this.setState({playing: playing});
+  // }
 
   deleteTrack(){
     this.props.deleteTrack(this.props.track);
@@ -84,7 +84,6 @@ class TrackItem extends React.Component{
           audioFile={this.props.track.audio}
           pos={this.state.pos}
           onPosChange={this.handlePosChange}
-          playing={this.state.playing}
           onReady={ (elm) => {this.props
             .updateTrack({track : {id: this.props.track.id,
               waves: elm.wavesurfer.backend.mergedPeaks.toString()}});}}
@@ -101,7 +100,6 @@ class TrackItem extends React.Component{
             audioFile={this.props.track.audio}
             pos={this.state.pos}
             onPosChange={this.handlePosChange}
-            playing={this.state.playing}
             audioPeaks={this.props.track.waves}
             volume={this.state.volume}
             options={
@@ -137,7 +135,7 @@ class TrackItem extends React.Component{
                     <div className= 'track-page-link'>{this.props.track.name}
                     </div>
                   </Link>
-                  {wave}
+                  
                 </div>
               </div>
               <div className='buttons'>
