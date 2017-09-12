@@ -8,6 +8,7 @@ Rails.application.routes.draw do
     get '/tracks/search/:query', to: 'tracks#search', as: 'query'
     resources :comments, only: [:update, :destroy]
     resource :session, only: [:show, :create, :destroy]
+    resource :likes, only: [:create, :destroy]
     resources :peaks, only: [:create]
   end
   root "static_pages#root"

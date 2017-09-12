@@ -8,5 +8,6 @@ json.user_pic asset_path(User.find(track.uploader_id).profile_pic)
 json.comments track.comments.ids
 json.user track.user.username
 json.created time_ago_in_words(track.created_at)
+json.liked_users track.liked_users.pluck(:user_id)
 json.waves waves.split(',')
 json.id track.id
