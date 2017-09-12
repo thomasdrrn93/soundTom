@@ -21,4 +21,10 @@ class Track < ApplicationRecord
     primary_key: :id,
     foreign_key: :track_id,
     class_name: :Comment
+
+  has_many :likes
+
+  has_many :like_users,
+    through: :likes,
+    source: :user
 end
