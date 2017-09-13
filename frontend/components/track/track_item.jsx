@@ -22,6 +22,7 @@ class TrackItem extends React.Component{
     this.findQueue = this.findQueue.bind(this);
     this.deleteTrack = this.deleteTrack.bind(this);
     this.handlePosChange = this.handlePosChange.bind(this);
+    this.handleLike = this.handleLike.bind(this);
   }
 
   // componentWillReceiveProps(nextProps){
@@ -55,6 +56,17 @@ class TrackItem extends React.Component{
     }
   }
 
+  handleLike(){
+    if (this.props.track.liked_users.includes(this.props.currentUser.id)){
+      this.props.deleteLike(
+        {like: {track_id: this.props.track.id,
+          user_id: this.props.currentUser.id}});
+    } else{
+      this.props.createLike({like: {track_id: this.props.track.id,
+        user_id: this.props.currentUser.id}});
+    }
+  }
+
   findQueue(){
     const cb = (elm) => {return elm === this.props.track;};
     const queue = this.props.queue;
@@ -80,6 +92,12 @@ class TrackItem extends React.Component{
             onClick={this.deleteTrack}><i className="fa fa-trash"
               aria-hidden="true"></i>Delete</div>
         : <div></div>;
+        const likes = <div className='delete-button'
+              onClick={this.handleLike}>
+          <i className="fa fa-heart"
+             aria-hidden="true">
+          </i>{this.props.track.liked_users.length}</div>;
+
         const wave = this.props.track.waves.length === 0 ? <Wavesurfer
           audioFile={this.props.track.audio}
           pos={this.state.pos}
@@ -135,10 +153,11 @@ class TrackItem extends React.Component{
                     <div className= 'track-page-link'>{this.props.track.name}
                     </div>
                   </Link>
-                  
+
                 </div>
               </div>
               <div className='buttons'>
+                {likes}
                 {edit}
                 {remove}
               </div>

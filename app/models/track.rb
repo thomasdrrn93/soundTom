@@ -24,7 +24,7 @@ class Track < ApplicationRecord
 
   has_many :likes
 
-  has_many :like_users,
+  has_many :liked_users,
     through: :likes,
     source: :user
 end

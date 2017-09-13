@@ -3,6 +3,7 @@ import { RECEIVE_SINGLE_TRACK, RECEIVE_ALL_TRACKS,
 import { RECEIVE_SINGLE_USER } from '../actions/user_actions';
 import { RECEIVE_SINGLE_COMMENT, DELETE_COMMENT } from
   '../actions/comment_actions';
+import { RECEVIE_LIKE } from '../actions/like_actions';
 
 
 const tracksReducer = (state = {}, action) =>{
@@ -29,6 +30,12 @@ const tracksReducer = (state = {}, action) =>{
       if (track.comments.includes(comment.id) === false){
         track.comments.push(comment.id);
       }
+      return newState;
+    case RECEVIE_LIKE:
+      newState = Object.assign({}, state);
+      const updateTrack = newState[action.like.track_id];
+      updateTrack.liked_users = action.like.liked_users;
+      newState[action.like.track_id] = updateTrack;
       return newState;
     default:
       return state;

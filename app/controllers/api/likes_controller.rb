@@ -1,26 +1,20 @@
-class LikesController < ApplicationController
+class Api::LikesController < ApplicationController
   def create
-    like = Like.new(like_params)
+    @like = Like.new(like_params)
 
-    if like.save
-      render json: {
-        user_id: like_params[:user_id],
-        track_id: like_params[:track_id]
-      }, status: 200
+    if @like.save
+      render 'api/likes/show'
     else
-      render json: like.errors.full_messages, status: 422
+      render json: @like.errors.full_messages, status: 422
     end
   end
 
   def destroy
-    like = Like.find(parans[:id])
-    if like.destroy
-      render json: {
-        user_id: like_params[:user_id],
-        track_id: like_params[:track_id]
-      }, status: 200
+    @like = Like.find_by(track_id: like_params[:track_id], user_id: like_params[:user_id])
+    if @like.destroy
+      render 'api/likes/show'
     else
-      render json: like.errors.full_messages, status: 422
+      render json: @like.errors.full_messages, status: 422
     end
   end
 
