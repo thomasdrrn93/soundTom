@@ -4,7 +4,7 @@ const searchReducer = (state = {}, action) =>{
   Object.freeze(state);
   switch(action.type){
     case RECEVIE_SEARCH_RESULT:
-      return action.tracks;
+      return action.result;
     default:
       return state;
   }

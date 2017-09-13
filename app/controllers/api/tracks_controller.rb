@@ -33,11 +33,12 @@ class Api::TracksController < ApplicationController
   end
 
   def search
-    @tracks = Track.where(
-    'lower(name) LIKE ? OR lower(user) LIKE ?',
-      "%#{params[:query].downcase}%",
-        "%#{params[:query].downcase}%")
-    render 'api/tracks/index'
+    @users = User.where('lower(username) LIKE ?',
+      "%#{params[:query].downcase}%").limit(2)
+    slots = 5 - @users.length
+    @tracks = Track.where('lower(name) LIKE ?',
+      "%#{params[:query].downcase}%").limit(slots)
+    render 'api/tracks/search'
   end
 
   private

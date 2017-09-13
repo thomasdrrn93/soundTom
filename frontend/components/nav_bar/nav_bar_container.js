@@ -3,11 +3,12 @@ import { connect } from 'react-redux';
 import { logout } from '../../actions/session_actions';
 import { fetchSearch } from '../../actions/search_actions';
 import { withRouter } from 'react-router-dom';
+import { searchResults } from '../../reducers/selectors';
 
 const mapStateToProps = (state) => {
   return{
     currentUser: state.session.currentUser,
-    search: state.entities.search
+    search: searchResults(state)
   };
 };
 

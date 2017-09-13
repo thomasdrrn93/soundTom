@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import UploadModalContainer from '../modals/upload_modal_container';
+import SingleSearchItem from '../search/single_search_item';
 
 class NavBar extends React.Component{
   constructor(props){
@@ -16,9 +17,10 @@ class NavBar extends React.Component{
   }
 
   handleChange(e){
-    return (this.setState({
+    this.setState({
       search: e.currentTarget.value
-    }));
+    });
+    this.props.fetchSearch(e.currentTarget.value);
   }
 
 
@@ -33,6 +35,12 @@ class NavBar extends React.Component{
   }
 
   render(){
+    const searchResults =
+      this.props.search.length > 0 ?
+        <ul className='search-results'>
+          {this.props.search.map(result => <SingleSearchItem key={result.id}
+            result={result} />)}
+        </ul> : <div></div>;
     return(
       <div className='nav-bar'>
         <div id='left-nav'>
@@ -41,10 +49,12 @@ class NavBar extends React.Component{
           </a>
         </div>
         <div id='center-nav'>
-          <form onSubmit={this.handleSearchSubmit}>
+          <form onSubmit={this.handleSearchSubmit} autoComplete="off">
             <input type='text' placeholder='Search' id='nav-search'
+              autoComplete="off"
               onChange={this.handleChange} />
           </form>
+          {searchResults}
         </div>
         <div id='right-nav'>
           <UploadModalContainer />

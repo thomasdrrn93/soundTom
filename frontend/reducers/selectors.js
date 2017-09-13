@@ -28,9 +28,9 @@ export const homeTracks = (state) => {
   );
 };
 
-export const searchTracks = (state) => {
-  const tracks = state.entities.search;
+export const searchResults = (state) => {
+  const result = state.entities.search;
   return(
-    Object.keys(tracks).map(key => tracks[key])
+    Object.keys(result).map(key => result[key])
   );
 };
