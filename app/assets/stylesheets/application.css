@@ -943,3 +943,17 @@ i{
 .single-search-result:hover{
   background: grey;
 }
+.like-button{
+  padding-bottom: 2px;
+  padding-left: 10px;
+  padding-right: 11px;
+  padding-top: 2px;
+  border: 1px solid #e5e5e5;
+  font-size: 14px;
+  cursor: pointer;
+  color: #f50;
+}
+
+.edit-button:hover{
+  border: 1px solid #f50;
+}

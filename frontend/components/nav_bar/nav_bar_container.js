@@ -1,7 +1,7 @@
 import NavBar from './nav_bar';
 import { connect } from 'react-redux';
 import { logout } from '../../actions/session_actions';
-import { fetchSearch } from '../../actions/search_actions';
+import { fetchSearch, clearSearch } from '../../actions/search_actions';
 import { withRouter } from 'react-router-dom';
 import { searchResults } from '../../reducers/selectors';
 
@@ -15,7 +15,8 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return{
     logout: () => dispatch(logout()),
-    fetchSearch: (query) => dispatch(fetchSearch(query))
+    fetchSearch: (query) => dispatch(fetchSearch(query)),
+    clearSearch: () => dispatch(clearSearch())
   };
 };
 

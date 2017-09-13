@@ -92,11 +92,20 @@ class TrackItem extends React.Component{
             onClick={this.deleteTrack}><i className="fa fa-trash"
               aria-hidden="true"></i>Delete</div>
         : <div></div>;
-        const likes = <div className='delete-button'
-              onClick={this.handleLike}>
-          <i className="fa fa-heart"
-             aria-hidden="true">
-          </i>{this.props.track.liked_users.length}</div>;
+        const likes = this.props.track.liked_users.includes(
+            this.props.currentUser.id) ?
+            <div className='like-button'
+                  onClick={this.handleLike}>
+              <i className="fa fa-heart"
+                 aria-hidden="true">
+              </i>{this.props.track.liked_users.length}
+            </div> :
+            <div className='delete-button'
+                  onClick={this.handleLike}>
+              <i className="fa fa-heart"
+                 aria-hidden="true">
+              </i>{this.props.track.liked_users.length}
+            </div>;
 
         const wave = this.props.track.waves.length === 0 ? <Wavesurfer
           audioFile={this.props.track.audio}

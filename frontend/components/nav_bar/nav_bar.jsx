@@ -14,13 +14,19 @@ class NavBar extends React.Component{
     this.handleLogout = this.handleLogout.bind(this);
     this.handleSearchSubmit = this.handleSearchSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
+    this.handleSearchClick = this.handleSearchClick.bind(this);
   }
 
   handleChange(e){
+    e.preventDefault();
     this.setState({
       search: e.currentTarget.value
     });
-    this.props.fetchSearch(e.currentTarget.value);
+    if (e.currentTarget.value === ''){
+      this.props.clearSearch();
+    } else {
+      this.props.fetchSearch(e.currentTarget.value);
+    }
   }
 
 
@@ -34,10 +40,16 @@ class NavBar extends React.Component{
     this.props.fetchSearch(this.state.search);
   }
 
+  handleSearchClick(e){
+    e.preventDefault();
+    this.setState({search: ''});
+    this.props.clearSearch();
+  }
+
   render(){
     const searchResults =
       this.props.search.length > 0 ?
-        <ul className='search-results'>
+        <ul className='search-results' onClick={this.handleSearchClick}>
           {this.props.search.map(result => <SingleSearchItem key={result.id}
             result={result} />)}
         </ul> : <div></div>;
