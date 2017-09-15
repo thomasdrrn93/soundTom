@@ -9,9 +9,10 @@ class TrackShow extends React.Component{
     super(props);
     const playing = this.props.currentSong.id === this.props.track.id &&
     this.props.status === 'play' ? true : false;
+    const pos = playing === false ? 0 : this.props.pos;
     this.state = {
       body: '',
-      pos: 0,
+      pos: pos,
       playing: playing,
       volume: 0
 
@@ -29,43 +30,44 @@ class TrackShow extends React.Component{
     }
     const playing = nextProps.currentSong.id === nextProps.track.id &&
     nextProps.status === 'play' ? true : false;
+    const pos = playing === false ? 0 : this.props.pos;
     this.setState({playing: playing});
   }
 
   componentDidMount() {
     this.props.fetchOneTrack({id: this.props.match.params.id});
- }
+  }
 
- handlePlay(){
+  handlePlay(){
    this.props.receiveCurrrentTrack(this.props.track, 'play');
- }
+  }
 
- handlePause(){
+  handlePause(){
    this.props.receiveCurrrentTrack(this.props.track, 'pause');
- }
+  }
 
- handleChange(e){
+  handleChange(e){
    return (this.setState({
      body: e.currentTarget.value
    }));
- }
+  }
 
- handleSubmit(e){
+  handleSubmit(e){
    e.preventDefault();
    const comment = {comment: {commenter_id: this.props.currentUser.id,
      body: this.state.body, track_id: this.props.track.id}};
    this.props.createComment(comment);
-  this.setState({body:''});
- }
+   this.setState({body:''});
+  }
 
   render() {
     const waves = this.props.track.waves || [];
     const wave = waves.length === 0 ? <Wavesurfer
       audioFile={this.props.track.audio}
       pos={this.state.pos}
-      onPosChange={this.handlePosChange}
+      onPosChange={this.handleChange}
       playing={this.state.playing}
-      volume={this.state.volume}
+      volume='0'
       onReady={ (elm) => {this.props
         .updateTrack({track : {id: this.props.track.id,
           waves: elm.wavesurfer.backend.mergedPeaks.toString()}});}}
@@ -81,10 +83,10 @@ class TrackShow extends React.Component{
       /> : <Wavesurfer
         audioFile={this.props.track.audio}
         pos={this.state.pos}
-        onPosChange={this.handlePosChange}
+        onPosChange={this.handleChange}
         playing={this.state.playing}
         audioPeaks={this.props.track.waves}
-        volume={this.state.volume}
+        volume='0'
         options={
           {
           waveColor: '#999',
@@ -104,6 +106,7 @@ class TrackShow extends React.Component{
     </div>: <div className="circle-large" onClick={this.handlePlay}>
       <div className="circle-inner"></div>
     </div>;
+    debugger;
     return(
       (typeof track.id === 'undefined') ?
       <header>
@@ -126,6 +129,7 @@ class TrackShow extends React.Component{
               <div>
                 <div className='track-show-name'>{track.name}</div>
               </div>
+              {wave}
             </div>
             <div className='track-center-profile'>
               <div className='track-show-upload'>{track.created} ago</div>
@@ -159,3 +163,5 @@ class TrackShow extends React.Component{
   }
 }
 export default TrackShow;
+
+// ref={Wavesurfer => this.wavesurfer = Wavesurfer}/>;

@@ -128,7 +128,7 @@ class TrackItem extends React.Component{
             pos={this.state.pos}
             onPosChange={this.handlePosChange}
             audioPeaks={this.props.track.waves}
-            volume={this.state.volume}
+            volume='0'
             options={
               {
               waveColor: '#999',
@@ -145,6 +145,7 @@ class TrackItem extends React.Component{
         {this.props.track.user} posted a track {this.props.track.created} ago
       </div>
     </div> : <div></div>;
+
     return(
       <div>
         {title}
@@ -162,7 +163,6 @@ class TrackItem extends React.Component{
                     <div className= 'track-page-link'>{this.props.track.name}
                     </div>
                   </Link>
-
                 </div>
               </div>
               <div className='buttons'>

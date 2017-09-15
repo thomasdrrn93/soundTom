@@ -18,6 +18,8 @@ class PlayBar extends React.Component{
     this.handlePlay = this.handlePlay.bind(this);
     this.handlePrev = this.handlePrev.bind(this);
     this.handleNext = this.handleNext.bind(this);
+    this.evented = false;
+    this.interval = this.interval.bind(this);
   }
 
   componentDidMount() {
@@ -41,8 +43,9 @@ class PlayBar extends React.Component{
   interval(){
     if (this.audioTag.duration.toString() !== 'NaN'){
       this.updateTime();
-    } else{
-
+      if (this.audioTag.currentTime !== this.props.pos){
+        this.props.updatePos(this.audioTag.currentTime);
+      }
     }
   }
 
@@ -101,7 +104,10 @@ class PlayBar extends React.Component{
     this.setState({currentTime: currentTime, duration: length});
 
     progress.value = (audio.currentTime / audio.duration);
-    progress.addEventListener('click', change);
+    if (this.evented === false){
+      progress.addEventListener('click', change);
+      this.evented = true;
+    }
 
     this.changeButton.style.left = `${progress.value * 100}%`;
 
