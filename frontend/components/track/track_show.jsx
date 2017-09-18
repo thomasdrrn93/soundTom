@@ -106,7 +106,7 @@ class TrackShow extends React.Component{
     </div>: <div className="circle-large" onClick={this.handlePlay}>
       <div className="circle-inner"></div>
     </div>;
-    debugger;
+  
     return(
       (typeof track.id === 'undefined') ?
       <header>
@@ -129,7 +129,6 @@ class TrackShow extends React.Component{
               <div>
                 <div className='track-show-name'>{track.name}</div>
               </div>
-              {wave}
             </div>
             <div className='track-center-profile'>
               <div className='track-show-upload'>{track.created} ago</div>

@@ -157,7 +157,7 @@ class PlayBar extends React.Component{
         onClick={this.handleNext} className='player-button' />;
     return(
       <div className='play-bar'>
-        <audio src={audio} preload="metadata"
+        <audio src={audio} preload="metadata" onCanPlay={ this.playAudio.bind(this) }
           ref={(elm) => {this.audioTag = elm;}}
         >
         </audio>
