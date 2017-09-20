@@ -149,7 +149,8 @@ class TrackShow extends React.Component{
             <img src={this.props.currentUser.profile_pic} id='comment-pic' />
             <form onSubmit={this.handleSubmit}>
               <input id='create-comment' value={this.state.body}
-                onChange={this.handleChange} placeholder='Write a Comment'>
+                onChange={this.handleChange} placeholder='Write a Comment'
+                autoComplete="off">
               </input>
             </form>
           </div>
