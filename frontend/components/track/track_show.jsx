@@ -21,7 +21,8 @@ class TrackShow extends React.Component{
     this.handlePlay = this.handlePlay.bind(this);
     this.handlePause = this.handlePause.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.handleChange= this.handleChange.bind(this);
+    this.handleChange = this.handleChange.bind(this);
+    this.handlePosChange = this.handlePosChange.bind(this);
   }
 
   componentWillReceiveProps(nextProps) {
@@ -52,6 +53,12 @@ class TrackShow extends React.Component{
    }));
   }
 
+  handlePosChange(e) {
+   this.setState({
+       pos: e.originalArgs[0]
+     });
+   }
+
   handleSubmit(e){
    e.preventDefault();
    const comment = {comment: {commenter_id: this.props.currentUser.id,
@@ -65,7 +72,7 @@ class TrackShow extends React.Component{
     const wave = waves.length === 0 ? <Wavesurfer
       audioFile={this.props.track.audio}
       pos={this.state.pos}
-      onPosChange={this.handleChange}
+      onPosChange={this.handlePosChange}
       playing={this.state.playing}
       volume='0'
       onReady={ (elm) => {this.props
@@ -83,7 +90,7 @@ class TrackShow extends React.Component{
       /> : <Wavesurfer
         audioFile={this.props.track.audio}
         pos={this.state.pos}
-        onPosChange={this.handleChange}
+        onPosChange={this.handlePosChange}
         playing={this.state.playing}
         audioPeaks={this.props.track.waves}
         volume='0'
@@ -106,7 +113,7 @@ class TrackShow extends React.Component{
     </div>: <div className="circle-large" onClick={this.handlePlay}>
       <div className="circle-inner"></div>
     </div>;
-  
+
     return(
       (typeof track.id === 'undefined') ?
       <header>

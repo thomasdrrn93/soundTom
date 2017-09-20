@@ -15,6 +15,7 @@ class NavBar extends React.Component{
     this.handleSearchSubmit = this.handleSearchSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.handleSearchClick = this.handleSearchClick.bind(this);
+    this.handleBlur = this.handleBlur.bind(this);
   }
 
   handleChange(e){
@@ -46,6 +47,12 @@ class NavBar extends React.Component{
     this.props.clearSearch();
   }
 
+  handleBlur(e){
+    e.preventDefault();
+    e.currentTarget.value = '';
+    setTimeout(this.props.clearSearch, 350);
+  }
+
   render(){
     const searchResults =
       this.props.search.length > 0 ?
@@ -64,7 +71,7 @@ class NavBar extends React.Component{
           <form onSubmit={this.handleSearchSubmit} autoComplete="off">
             <input type='text' placeholder='Search' id='nav-search'
               autoComplete="off"
-              onChange={this.handleChange} />
+              onChange={this.handleChange} onBlur={this.handleBlur} />
           </form>
           {searchResults}
         </div>

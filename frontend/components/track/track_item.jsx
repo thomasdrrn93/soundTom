@@ -145,7 +145,6 @@ class TrackItem extends React.Component{
         {this.props.track.user} posted a track {this.props.track.created} ago
       </div>
     </div> : <div></div>;
-
     return(
       <div>
         {title}

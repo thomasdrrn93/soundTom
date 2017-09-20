@@ -25,8 +25,8 @@ const mapDispatchToProps = dispatch => ({
   receiveCurrrentTrack: (track, status) =>
     dispatch(receiveCurrrentTrack(track, status)),
   createComment: (comment) => dispatch(createComment(comment)),
-  getTrackWaves: (track) => dispatch(getTrackWaves),
-  updatePos: (pos) => dispatch(pos)
+  updateTrack: (track) => dispatch(getTrackWaves),
+  updatePos: (pos) => dispatch(pos),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(TrackShow);
