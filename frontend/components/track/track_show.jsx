@@ -137,7 +137,7 @@ class TrackShow extends React.Component{
               <div>
                 <div className='track-show-name'>{track.name}</div>
               </div>
-              {wave}
+              
             </div>
             <div className='track-center-profile'>
               <div className='track-show-upload'>{track.created} ago</div>
