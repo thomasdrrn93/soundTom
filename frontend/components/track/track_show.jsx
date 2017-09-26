@@ -7,13 +7,13 @@ import Wavesurfer from 'react-wavesurfer';
 class TrackShow extends React.Component{
   constructor(props){
     super(props);
-    const playing = this.props.currentSong.id === this.props.track.id &&
-    this.props.status === 'play' ? true : false;
-    const pos = playing === false ? 0 : this.props.pos;
+    // const playing = this.props.currentSong.id === this.props.track.id &&
+    // this.props.status === 'play' ? true : false;
+    // const pos = playing === false ? 0 : this.props.pos;
     this.state = {
       body: '',
-      pos: pos,
-      playing: playing,
+      pos: 0,
+      playing: false,
       volume: 0
 
     };
@@ -26,13 +26,14 @@ class TrackShow extends React.Component{
   }
 
   componentWillReceiveProps(nextProps) {
+    const audio = document.getElementById("audio");
     if (this.props.match.params.id !== nextProps.match.params.id) {
       this.props.fetchOneTrack({id: nextProps.match.params.id});
     }
     const playing = nextProps.currentSong.id === nextProps.track.id &&
     nextProps.status === 'play' ? true : false;
-    const pos = playing === false ? 0 : this.props.pos;
-    this.setState({playing: playing});
+    const pos = playing === false ? 0 : audio.currentTime;
+    this.setState({playing: playing, pos: pos});
   }
 
   componentDidMount() {
@@ -136,6 +137,7 @@ class TrackShow extends React.Component{
               <div>
                 <div className='track-show-name'>{track.name}</div>
               </div>
+              {wave}
             </div>
             <div className='track-center-profile'>
               <div className='track-show-upload'>{track.created} ago</div>
